@@ -78,7 +78,6 @@ function verif1(){
     ch1 = mail.substring(0, at);
     ch2 = mail.substring(at+1, pi);
     ch3 = mail.substring(pi + 1, mail.length);
-    //soltanmourad@bizerte.r-iset.tn
     if((ch1.length==0)||(ch2.length==0)||(ch3.length==0)||(ch3.length!=2)||(strcmp(ch2,"bizerte.r-iset") || strcmp(ch3,"tn"))){
     	alert("mail invalide");return false;
     }
