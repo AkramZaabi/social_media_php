@@ -1,0 +1,159 @@
+body{
+    border: 0;
+    padding: 0;
+}
+nav{
+    width: 100%;
+    height : 90px;
+    border-radius: 6px;
+   border-bottom: 1px solid black;
+    align-items: center;
+    display:flex;
+    justify-content: space-between;
+    gap:60px;
+}
+
+#barre-rech {
+  
+    border-radius: 15px;
+    height:35px;
+    width:30%;
+}
+section
+{
+    display: flex ;
+   align-items: center;
+   gap:15px;
+    margin-top: 50px;
+    
+}
+section div{
+    border-radius: 6px;
+}
+#user{
+
+    width: 20%;
+    height: 918px;
+    border : 1px solid black;
+   
+}
+#user img{
+    width:50px;
+    height:50px;
+    float: left;
+    margin: 15px 0 0 10px;
+}
+#user span{
+    width:100px;
+    height:50px;
+    float: left;
+    margin: 25px 0 0 10px;
+    
+}
+#user-section{
+
+    width: 60%;
+    height: 918px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    
+}
+#notifications{
+    width: 20%;
+    height: 918px;
+    border : 1px solid black;
+
+}
+#amis{
+    border : 1px solid black;
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:center ;
+    gap:20px;
+    overflow: hidden;
+    
+}
+#amis div img {
+    border-radius: 50%;
+    border:8px solid #5992DC;
+    width: 70px;
+    height: 65px;
+}
+#amis img{
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+
+}
+#publication{
+    border : 1px solid black;
+    width: 100%;
+    height: 18%;
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+#page{
+    border : 1px solid black;
+    width: 100%;
+    height: 70%;
+    display: flex;
+}
+#logo {
+    margin-left: 50px;
+}
+#icons{
+    display: flex;
+    align-items: center;
+
+}
+#icons div{
+    width:70px;
+    height:30px;
+}
+#icons img{
+    width:70px;
+    height:30px;
+}
+#arrow{
+    width: 50px !important;;
+    height:30px !important;
+    border-radius: 50%;
+}
+#input {
+    width: 80%;
+    height:50%;
+}
+
+.image-profile
+{
+    display: flex;
+    
+    width: 20%;
+    align-self: center;
+    height: 25%;
+   
+}
+.image-profile img{
+    width: 50px;
+   
+}
+#page-content1
+{
+    display: flex;
+    align-items: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#page-content2
+{
+    height:200px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+}
