@@ -12,7 +12,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
+    <nav class="shadow p-3 mb-5 bg-white rounded">
         
         <div  class="nav-content"id="logo" ><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
         <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
@@ -23,21 +23,21 @@
         </div>
     </nav>
     <section>
-        <div  class="inner-section" id="user">
+        <div  class="inner-section shadow p-3 mb-5 bg-white rounded" id="user" >
            <img src="../assets/icons/profile1.png"><span>User name</span>
         </div>
-        <div class="inner-section" id="user-section" >
-            <div id="amis">
+        <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section"  >
+            <div id="amis"class="card" >
                 <div><img class="prfile-picture" src="../assets/icons/profile2.png"></div>
                 <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
                 <div><img class="prfile-picture" src="../assets/icons/profile3.png"></div>
                 <div><img class="prfile-picture" src="../assets/icons/profile4.png"></div>
                 <div><img class="prfile-picture" src="../assets/icons/profile5.png"></div>
                 <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
-                <div><img class="prfile-picture" src="../assets/icons/profile2.png"></div>
+               
                 <img id="arrow"src="../assets/icons/arrow-right-circle.svg">
             </div>
-            <div id="publication">
+            <div id="publication" class="card">
 
 
 
@@ -60,14 +60,16 @@
 
 
             </div>
-            <div id="page">
+            <div id="page" class="card">
                 <div>
                   
                 </div>
                 <div></div>
             </div>
         </div>
-        <div  class="inner-section" id="notifications"></div>
+        <div  class="inner-section  shadow p-3 mb-5 bg-white rounded" id="notifications">
+            <span ><b >Friends</b></span>
+        </div>
 
     </section>
 </body>
