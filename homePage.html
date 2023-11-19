@@ -184,7 +184,27 @@
         <div class="formule">
             <button aria-label="close modal" class="close-modal modal-trigger1">X</button>
             <h2>SIGN UP</h2>
-                <form name="F" id="contactForm" action="#" method="POST" onsubmit="return verif1()">
+                <form name="F" id="contactForm" action="#" method="POST">
+                  <div class="division">
+                  <div>
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Name</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Last Name</label>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="input-field">
+                        <input type="file" id="imageUpload" name="image" accept="image/*">
+                    </div>
+                    <div class="input-field">
+                        <input type="date" required>
+                    </div>
+                  </div>
+                </div>
                     <div class="input-field">
                         <input type="text" required>
                         <label>Enter your email</label>

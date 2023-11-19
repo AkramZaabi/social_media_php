@@ -456,7 +456,7 @@ p:hover img {
 
 .modal-container.active .formule,.modal-container1.active .formule{
     opacity: 1;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%);
     transition: opacity 0.4s 0.2s ease-out,
     transform 0.4s 0.2s ease-out;
 }
@@ -569,8 +569,24 @@ form button:hover {
 .policy-text{
     margin-left: -210px;
 }
+
+.division {
+  height: 60px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: space-between;
+  padding-bottom: 140px;
+  gap: 10px;
+}
+
+.division > div {
+  width: 95%;
+}
   
-  @media (max-width: 880px) {
+  @media (max-width: 788px) {
   
     .footer-distributed{
       font: bold 14px sans-serif;
@@ -588,4 +604,58 @@ form button:hover {
     .footer-distributed .footer-center i{
       margin-left: 0;
     }
+
+    .logo {
+      width: 100px; /* Ajustez la largeur selon vos besoins pour les écrans plus petits */
+  }
+
+  .div-logo {
+      margin-left: 2px; /* Ajustez la marge pour les écrans plus petits */
+  }
+
+  .container-fluid {
+      margin-top: 0;
+  }
+
+  .d-flex {
+      align-items: center; /* Centrez les éléments */
+  }
+
+  .sign {
+      width: 100%; /* Ajustez la largeur pour occuper la largeur complète */
+      margin-top: 10px; /* Ajoutez une marge en haut pour les écrans plus petits */
+  }
+  .image {
+    display: none;
+  }
+
+  .text {
+    font-weight: normal;
+  }
+
+  #services {
+    margin-top: 0;
+    height: auto;
+  }
+
+  #services h2 {
+    letter-spacing: 0;
+    padding-bottom: 40px;
+  }
+
+  .row div {
+    width: 100%;
+  }
 }  
+
+@media (max-width: 573px) {
+  .div-logo {
+    margin-left: 40%;
+  }
+
+  .d-flex button {
+    padding: 4px 7px;
+    margin: 0 0;
+  }
+}
+
