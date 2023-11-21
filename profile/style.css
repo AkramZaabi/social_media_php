@@ -8,127 +8,132 @@ body{
     padding: 25px 25px;
     background-color: white;
     display: grid;
-    grid-template-columns: 1130px 230px 110px;
+    grid-template-columns: 7fr 250px 150px;
     gap: 10px;
+    align-items: center;
+    
 }
 i{
     font-size: 27px;
 }
-.searche{
-    display: inline;
-}
 .nav-bar i{
-    margin-top: -5px;
+    margin-top: 5px;
 }
 .menu{
-    display: grid;
-    grid-template-columns: auto auto auto;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
 }
 .searche input{
     border: 1px solid black;
     box-shadow: 0 0 10px rgba(255, 255, 255, 50%);
     border-radius:50px;
     padding: 5px 0px 5px 40px;
+    margin-top: 5px;
+    width: 100%;
 }
 .searche i{
-    position: absolute;
-    right: 320px;
-    top: 27px;
+    margin-right: -40px;
+    position: relative;
+    top: 5px;
 }
+
 .Photo-de-couverture{
-    background-image: url(palastine.jpg);
-    background-size: cover;
-    background-position: 0px -100px;
-    width: 1200px;
     height: 260px;
-    margin-left: 170px ;
+    display: flex;
+    justify-content: center;
+}
+.Photo-de-couverture img{
+    width: 1200px;
+
+}
+.profile{
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
 }
 .profile-user{
-    margin-left: 170px ;
     background-color: white;
-    margin-right: 149px;
-    margin-top: -24px;
-    padding-bottom: 200px;
+    width: 1200px;
 }
 .profile-user img{
     border: 0px;
     border-radius: 50%;
     height: 220px;
     width: 220px;
-    position: absolute;
-    top: 230px;
-    left: 200px;
+    position: relative;
+    top: -120px;
+    left: 20px;
+    
 }
 .profile-user h1{
-    position: absolute;
-    left: 430px;
+    margin-top: -210px;
+    margin-left: 280px;
 }
 .name span{
-    position: absolute;
-    top: 400px;
-    left: 430px;
+    position: relative;
+    margin-left: 280px;
+    top: -10px;
 }
 span{
-    font-size: 25px;
+    font-size: 20px;
 }
 .name i{
-    position: absolute;
-    right: 180px;
+    position: relative;
+    top: -50px;
+    margin-left: 800px;
+}
+.follow{
+    display: grid;
+    grid-template-columns: 150px 150px;
+    gap: 20px;
+    margin: 10px;
+}
+.follow i{
+    margin-top: -4px;
 }
 .edit{
     background-color: #F3F3F3;
-    position: absolute;
+    position: relative;
     display: grid;
     grid-template-columns: auto auto;
     column-gap:10px;
     border-radius: 5px;
     padding: 5px;
-    top: 470px;
-    left: 190px;
-}
-.edit1{
-    background-color: #F3F3F3;
-    position: absolute;
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap:10px;
-    border-radius: 5px;
-    padding: 5px;
-    top: 470px;
-    left: 190px;
-    padding-right: 50px;
 }
 .add{
     background-color: #96C3E2;
-    position: absolute;
+    position: relative;
     display: grid;
     grid-template-columns: auto auto;
     column-gap:10px;
     border-radius: 5px;
     padding: 5px;
-    top: 470px;
-    left: 370px;
 }
 .details{
-    position: absolute;
-    top: 440px;
-    right: 190px;;
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(3,auto);
-    gap: 40px;
+    grid-template-columns: repeat(3,150px);
+    justify-content: flex-end;
+    top: -70px;
 }
 .details p{
-    text-align: center;
+    margin-left: 20px;
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 0px;
 }
-.information{
-    margin-left: 170px;
-    margin-top: 20px;
+.main{
     display: grid;
-    grid-template-columns: 450px 730px;
-    column-gap: 20px;
+    grid-template-columns: 1200px;
+    justify-content: center;
+}
+.information{
+    display: grid;
+    grid-template-columns: 490px 690px;
+    justify-content: center;
+    gap: 20px;
+    
 }
 .about{
     background-color: white;
@@ -141,10 +146,10 @@ span{
     border-radius: 5px;
 }
 .publication p{
-    position: absolute;
+    position: relative;
     font-size: 25px;
-    top: 90%;
-    right: 400px;
+    top: 200px;
+    margin-left: 300px;
 }
 .publication1{
     display: grid;
