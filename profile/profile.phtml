@@ -1,0 +1,84 @@
+<nav class="nav-bar">
+    <i class="bi bi-arrow-left-circle"></i>
+    <div class="searche">
+        <i class="bi bi-search"></i>
+        <input type="text" id="recherche" placeholder="searche...">
+    </div>
+
+    <div class="menu">
+        <i class="bi bi-envelope-fill"></i>
+        <i class="bi bi-bell-fill"></i>
+        <i class="bi bi-list"></i>
+    </div>
+</nav>
+<div class="Photo-de-couverture">
+    <?php if($_SESSION['photoCouverture']) { ?>
+        <img src="<?= $_SESSION['photoCouverture'] ?>">
+    <?php } else { ?>
+        <img src="assets/photo-de-couverture.png">
+    <?php } ?>    
+</div>
+<section class="profile">
+    <div class="profile-user">
+        <?php if(!$_SESSION['genre']){ ?>
+            <img src="<?= $_SESSION['photoProfile'] ?>">
+        <?php }else if ($_SESSION['genre'] == "male") { ?>
+            <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
+        <?php } else { ?>
+            <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
+        <?php } ?>
+        <div class="name">
+            <h1><?= $_SESSION['prenom'].' '.$_SESSION['nom'] ?></h1>
+            <span><?= $_SESSION['metier'] ?></span>
+            <i class="bi bi-calendar"></i>
+        </div>
+        <div class="follow">
+            <div class="edit">
+                <i class="bi bi-pencil-square"></i>
+                <span>Edit Profile</span>
+            </div>
+            <div class="add">
+                <i class="bi bi-plus-lg"></i>
+                <span>Add a story</span>
+            </div>
+        </div>
+        <div class="details">
+            <div>
+                <p><?= $_SESSION['Photos'] ?></p>
+                <span>Photos</span>
+            </div>
+            <div>
+                <p><?= $_SESSION['Followers'] ?></p>
+                <span>Followers</span>
+            </div>
+            <div>
+                <p><?= $_SESSION['Folloowing'] ?></p>
+                <span>Folloowing</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<br>
+<section>
+    <div class="information">
+        <div class="about">
+            <h2>About</h2>
+        </div>
+        <div class="publication">
+            <div class="publication1">
+                <?php if(!$_SESSION['genre']){ ?>
+                    <img src="<?= $_SESSION['photoProfile'] ?>">
+                <?php }else if ($_SESSION['genre'] == "male") { ?>
+                    <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
+                <?php } else { ?>
+                    <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
+                <?php } ?>
+                <h3><?= $_SESSION['prenom'].' '.$_SESSION['nom'] ?></h3>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <h1>................................................</h1>
+</footer>

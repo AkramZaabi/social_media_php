@@ -1,0 +1,23 @@
+<div class="modal-container">
+    <div class="overlay modal-trigger"></div>
+    <div class="formule">
+        <button aria-label="close modal" class="close-modal modal-trigger">X</button>
+        <h2>SING IN</h2>
+            <form name="F" id="contactForm" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return verif()">
+                <div class="input-field">
+                    <input type="text" name="mail" id="mail" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="pwd" id="pwd" required>
+                    <label>Password</label>
+                </div>
+                <a href="#" class="forgot-pass-link" id="forgot-pass-link">Forgot password?</a><br>
+                <button type="submit" name="submit">Log In</button>
+            </form>
+            <div class="bottom-link">
+                Don't have an account?
+                <a href="#" aria-label="close modal" id="signup-link" class="modal-trigger1 modal-trigger">Signup</a>
+            </div>
+    </div>
+</div>
