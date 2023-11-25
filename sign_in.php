@@ -14,6 +14,7 @@
         }
         else{
             if(password_verify($pwd, $user['mdps'])) {
+                $_SESSION['nom']=$user['id'];
                 $_SESSION['nom']=$user['nom'];
                 $_SESSION['prenom']=$user['prenom'];
                 $_SESSION['mail']=$user['mail'];
