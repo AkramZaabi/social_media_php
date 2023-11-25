@@ -7,13 +7,13 @@
             'mail'=>$mail,
         ]);
         $user=$res->fetch();
-        $new_password = password_hash ($pwd, PASSWORD_DEFAULT);
-        var_dump($new_password);
+        //var_dump($new_password);
         if(!$user){
             goto show_form;
         }
         else{
             if(password_verify($pwd, $user['mdps'])) {
+                $new_password = password_hash ($pwd, PASSWORD_DEFAULT);
                 $_SESSION['nom']=$user['nom'];
                 $_SESSION['prenom']=$user['prenom'];
                 $_SESSION['mail']=$user['mail'];
@@ -25,6 +25,9 @@
                 $_SESSION['genre']=$user['genre'];
                 $_SESSION['metier']=$user['metier'];
                 $_SESSION['bio']=$user['bio'];
+                $_SESSION['Photos']=0;
+                $_SESSION['Followers']=0;
+                $_SESSION['Folloowing']=0;
                 header('Location: ./profile/profile.php');
             }
             else{

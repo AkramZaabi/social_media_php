@@ -1,11 +1,11 @@
 <?php
     session_start();
     if(!isset($_SESSION['nom'])){
-        header('Location: ../homePage.php');
+        header('Location: ../index.php');
         exit();
     }
-    var_dump($_SESSION);
-    include '../DBconnect.php';
+    //var_dump($_SESSION);
+    include '../db_connect/db_connect.php';
     $template="profile";
     $titredepage="Profile";
     include 'layout.phtml';

@@ -1,7 +1,6 @@
-
 <?php
     session_start();
-    include 'DBconnect.php';
+    include 'db_connect/db_connect.php';
     $template="homePage";
     $titredepage="CollabSpot";
     include 'layout.phtml';

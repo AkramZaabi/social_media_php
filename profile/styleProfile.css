@@ -100,6 +100,10 @@ span{
     column-gap:10px;
     border-radius: 5px;
     padding: 5px;
+    z-index: 1;
+}
+.edit a{
+    font-size: 25px;
 }
 .add{
     background-color: #96C3E2;
