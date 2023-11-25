@@ -1,4 +1,4 @@
-/*function alpha(ch) {
+function alpha(ch) {
     for (i=0;i<ch.length;i++) {
         c=ch.charAt(i).toUpperCase();
         if((c<"A")||(c>"Z")){
@@ -85,4 +85,4 @@ function verif1(){
         alert("password invalide");return false;
     }
     return true;
-}*/
+}
