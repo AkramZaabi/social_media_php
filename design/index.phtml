@@ -13,7 +13,20 @@
 </head>
 <body>
     <nav class="shadow p-3 mb-5 bg-white rounded">
-        
+        <div class="friends-search ">
+        <?php if(isset($friends)): 
+                foreach($friends as $key):
+        ?>
+             <div class="card" style="height: 12rem;">
+                <img  src="<?=$key['img']?>">
+                <span><?= $key['nom'].' '.$key['prenom'] ?></span>
+             </div>
+        <?php 
+             endforeach;
+             endif; 
+        ?>
+
+        </div>
         <div  class="nav-content"id="logo" ><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
         <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
         <div  class="nav-content"id="icons">
