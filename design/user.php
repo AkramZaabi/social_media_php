@@ -13,41 +13,48 @@
 <body>
   <nav class="shadow p-3 mb-5 bg-white rounded">
     <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
-    <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
+    <div class="nav-content" id="barre-rech" ><form style="display:flex" action="friends-search.php" method="GET">
+     <button type="submit"class="btn btn-outline-primary me-2" width="200px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mb-2" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg></button><input required class="form-control me-2" type="text" placeholder="Chercher un étudiant..." name="search_friends" aria-label="Search" id="search_etud"></div>
+        </form>
     <div class="nav-content" id="icons">
-    <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <div><img src="../assets/icons/bell-fill.svg"></div>
-          </a>
-          <ul class="dropdown-menu" style="width:600px;">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-</div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/bell-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
 
 
       <div><img src="../assets/icons/list.svg"></div>
-        <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <div><img src="../assets/icons/envelope-fill.svg"></div>
-          </a>
-          <ul class="dropdown-menu" style="width:600px;">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-</div>
-       
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/envelope-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
     </div>
   </nav>
-  <div class="friends-search ">
-    <?php if (isset($friends)) :
+
+    <?php if (isset($friends)) : ?>
+      <div class="container card friends-search ">
+       <?php 
       foreach ($friends as $key) :
     ?>
         <div class="card" style="height: 12rem;">
-          <img src="<?= $key['img'] ?>">
+          <img src="<?= $key['img'] ?>" width="100px" height="80px">
           <span><?= $key['nom'] . ' ' . $key['prenom'] ?></span>
+          <a href="friend-request.php?id_ami =<?=$key?>"><button class="btn btn-primary">Add</button></a>
         </div>
     <?php
       endforeach;
