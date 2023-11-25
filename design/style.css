@@ -98,6 +98,10 @@ section div{
     
    
 }
+.navbar-nav{
+    display: flex;
+    flex-direction: column;
+}
 #page{
     width: 100%;
     height: 70%;

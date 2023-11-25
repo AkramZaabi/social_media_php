@@ -2,7 +2,7 @@
 <?php
     session_start();
     include 'DBconnect.php';
-    $template="homePage";
+    $template="index";
     $titredepage="CollabSpot";
     include 'layout.phtml';
 ?>
