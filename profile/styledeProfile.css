@@ -11,10 +11,13 @@ body{
     grid-template-columns: 7fr 250px 150px;
     gap: 10px;
     align-items: center;
-    
 }
 i{
     font-size: 27px;
+}
+.nav-bar a{
+    text-decoration: none;
+    color: black;
 }
 .nav-bar i{
     margin-top: 5px;
@@ -103,7 +106,9 @@ span{
     z-index: 1;
 }
 .edit a{
-    font-size: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
 }
 .add{
     background-color: #96C3E2;
@@ -170,4 +175,14 @@ span{
 .publication1 h3{
     margin-top: 20px;
     font-size: 20px;
+}
+.modify{
+    display: grid;
+    grid-template-columns: 1200px;
+    justify-content: center;
+}
+form{
+    background-color: white;
+    padding: 30px;
+    margin-top: -10px;
 }
