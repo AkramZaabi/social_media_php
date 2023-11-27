@@ -2,13 +2,12 @@
     if(isset($_POST['submit'])){
         extract($_POST);
         $sql='SELECT * FROM utilisateur WHERE mail=:mail';
-        $res=$bdd->prepare($sql);
+        $res=$pdo->prepare($sql);
         $res->execute([
             'mail'=>$mail,
         ]);
         $user=$res->fetch();
         $new_password = password_hash ($pwd, PASSWORD_DEFAULT);
-        var_dump($new_password);
         if(!$user){
             goto show_form;
         }
@@ -26,7 +25,7 @@
                 $_SESSION['genre']=$user['genre'];
                 $_SESSION['metier']=$user['metier'];
                 $_SESSION['bio']=$user['bio'];
-                header('Location: ./profile/profile.php');
+                header('Location: ./design/user.php');
             }
             else{
                 goto show_form;

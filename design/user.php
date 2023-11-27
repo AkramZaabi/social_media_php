@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <?php  include 'C:\xampp\htdocs\project-php-sem1\db_connect\db_connect.php';
+  ?>
   <nav class="shadow p-3 mb-5 bg-white rounded">
     <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
     <div class="nav-content" id="barre-rech" ><form style="display:flex" action="friends-search.php" method="GET">
@@ -45,15 +47,20 @@
 
     </div>
   </nav>
-
+  
     <?php if (isset($friends)) : ?>
-      <div class="container card friends-search ">
+    
+   
+      <div class="container friends-search ">
+      <div  class="alert alert-success" role="alert" style="width:18rem;">
+          amis trouvées!!;
+        </div>
        <?php 
       foreach ($friends as $key) :
     ?>
         <div class="card" style="height: 12rem;">
-          <img src="<?= $key['img'] ?>" width="100px" height="80px">
-          <span><?= $key['nom'] . ' ' . $key['prenom'] ?></span>
+          <img src="C:\Users\akram\OneDrive\Images\<?=$key['photoProfile']?>" width="100px" height="80px">
+          <span><?= include '' ?></span>
           <a href="friend-request.php?id_ami =<?=$key?>"><button class="btn btn-primary">Add</button></a>
         </div>
     <?php
