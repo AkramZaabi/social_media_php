@@ -3,7 +3,7 @@
     <div class="formule">
         <button aria-label="close modal" class="close-modal modal-trigger1">X</button>
         <h2>SIGN UP</h2>
-            <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>"  enctype="multipart/form-data" method="POST" onsubmit="return verif1()">
+            <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>"  method="POST" onsubmit="return verif1()" enctype="multipart/form-data">
                 <div class="division">
                     <div>
                         <div class="input-field">
@@ -20,7 +20,7 @@
                             <label>First Name</label>
                         </div>
                         <div class="input-field" style="border: none;">
-                            <input type="file" id="imageUpload" name="image" accept="image/*">
+                            <input type="file" id="imageUpload" name="image" ">
                         </div>
                     </div>
                 </div>

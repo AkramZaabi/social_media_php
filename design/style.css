@@ -34,11 +34,15 @@ section div{
 
     width: 20%;
     height: 918px;
-    
+    display: flex;
+    flex-direction: row;
    
 }
+#user{
+    width: 100%;
+}
 #user img{
-    width:50px;
+    width:150px;
     height:50px;
     float: left;
     margin: 15px 0 0 10px;
@@ -46,10 +50,11 @@ section div{
 #user span{
     width:100px;
     height:50px;
-    float: left;
     margin: 25px 0 0 10px;
+    text-align: center;
     
 }
+
 #user-section{
 
     width: 60%;

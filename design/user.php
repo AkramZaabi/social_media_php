@@ -48,7 +48,7 @@
     </div>
   </nav>
   
-    <?php if (isset($friends)) : ?>
+    <?php if (isset($msg) && $msg==1) { ?>
     
    
       <div class="container friends-search ">
@@ -58,19 +58,28 @@
        <?php 
       foreach ($friends as $key) :
     ?>
-        <div class="card" style="height: 12rem;">
-          <img src="C:\Users\akram\OneDrive\Images\<?=$key['photoProfile']?>" width="100px" height="80px">
-          <span><?= include '' ?></span>
-          <a href="friend-request.php?id_ami =<?=$key?>"><button class="btn btn-primary">Add</button></a>
+        <div class="card" style="height: 12rem; width:18rem;">
+          <img src="../<?=$key['photoProfile']?>" width="100px" height="80px">
+          <span><?=$key['nom'].' '.$key['prenom']?></span>
+          <a href="friend-request.php?id_ami=<?=$key['idUtilisateur']; ?>"><button class="btn btn-primary">Add</button></a>
         </div>
     <?php
       endforeach;
-    endif;
+    }else{
+      if(isset($msg))
+      { 
     ?>
+     <div class="container friends-search ">
+     <div  class="alert alert-danger" role="alert" style="width:18rem;">
+          amis non trouvées!!;
+        </div>
+     </div>
+      <?php  } } ?>
   </div>
   <section>
-    <div class="inner-section shadow p-3 mb-5 bg-white rounded" id="user">
-      <img src="../assets/icons/profile1.png"><span>User name</span>
+    <div class=" shadow p-3 mb-5 bg-white rounded" id="user">
+     <div> <img src="../assets/icons/profile1.png"><span>User name</span></div>
+     <div> <span>friends request</span></div>
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section">
       <div id="amis" class="card">
