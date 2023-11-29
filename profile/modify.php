@@ -20,7 +20,7 @@
             `genre`=?,
             `metier`=?
             WHERE idUtilisateur=?';
-        $res=$bdd->prepare($sql);
+        $res=$pdo->prepare($sql);
         $res->execute([
             $Last_Name,$First_Name,$mail,$imageProfile,$imageCover,$date,$Genre,$job,$id
         ]);
@@ -43,7 +43,7 @@
 
 
     $sql='SELECT * FROM utilisateur WHERE idUtilisateur=?';
-    $res=$bdd->prepare($sql);
+    $res=$pdo->prepare($sql);
     $res->execute([
         $_GET['id']
     ]);

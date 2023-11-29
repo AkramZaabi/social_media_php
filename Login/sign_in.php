@@ -2,7 +2,7 @@
     if(isset($_POST['submit'])){
         extract($_POST);
         $sql='SELECT * FROM utilisateur WHERE mail=:mail';
-        $res=$bdd->prepare($sql);
+        $res=$pdo->prepare($sql);
         $res->execute([
             'mail'=>$mail,
         ]);
