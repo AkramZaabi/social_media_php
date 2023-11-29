@@ -7,7 +7,9 @@ include 'C:\xampp\htdocs\project-php-sem1\db_connect\db_connect.php';
 if(isset($_GET['search_friends']))
 {
     $searchTerm = $_GET['search_friends'];
-    $sql = $pdo->query("SELECT * FROM utilisateur WHERE (prenom LIKE '$searchTerm' )OR (nom LIKE '$searchTerm')");
+    $name_search="%".$searchTerm."%";
+    $sql = $pdo->prepare("SELECT * FROM utilisateur WHERE (prenom LIKE '$name_search' ) OR (nom LIKE '$name_search')");
+    $sql->execute();
     $friends = $sql->fetchAll();
      if (!empty($friends))
     {
@@ -17,9 +19,12 @@ if(isset($_GET['search_friends']))
        $msg = 0 ; 
     }
     $_GET['search_friends']=NULL;
+   
 
 }
-
+else{
+    header('Location:./user.php');
+}
  
  
 
