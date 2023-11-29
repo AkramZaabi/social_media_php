@@ -13,7 +13,7 @@
         else{
             if(password_verify($pwd, $user['mdps'])) {
                 $_SESSION['idUtilisateur']=$user['idUtilisateur'];
-                header('Location: ./profile/profile.php');
+                header('Location: ./design/user.php');
                 exit();
             }
             else{
