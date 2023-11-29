@@ -3,6 +3,12 @@
 //include './db_connect/db_connect.php';
 
 include 'C:\xampp\htdocs\project-php-sem1\db_connect\db_connect.php';
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$id =$_SESSION['idUtilisateur'];
+
+
 // Retrieve the search term from the form
 if(isset($_GET['search_friends']))
 {

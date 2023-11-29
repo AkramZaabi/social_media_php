@@ -35,7 +35,7 @@
         $_SESSION['Photos']=0;
         $_SESSION['Followers']=0;
         $_SESSION['Folloowing']=0;*/
-      header('Location: ./profile/profile.php');
+      header('Location: ./design/user.php');
     }
     $template="sign_up";
     $titredepage="sign_up";
