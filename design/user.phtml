@@ -77,8 +77,21 @@
   </div>
   <section>
     <div class=" shadow p-3 mb-5 bg-white rounded" id="user">
-     <div> <img src="../assets/icons/profile1.png"><span>User name</span></div>
-     <div> <span> request</span></div>
+     <div id="user-sector"> <img src="../assets/icons/profile1.png"><span>User name</span></div>
+     <div class="mt-5 span-friends"> <span>friends-request:</span></div>
+     <div id="requests"> 
+          <?php if(isset($friends_request)):?>
+            <?php  foreach($friends_request as $key): ?>
+            <div class="card mt-5 " >
+            <img src="../<?=$key['photoProfile']?>">
+            <span><?=$key['prenom'].' '.$key['nom'] ?></span>
+                <div><i class="bi bi-plus-square me-3"></i><i class="bi bi-dash-square"></i></div>
+          </div>
+          
+            <?php endforeach; ?>
+          <?php endif; ?>
+     </div>
+     <div class="friends"></div>
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section">
       <div id="amis" class="card">
@@ -122,6 +135,24 @@
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="notifications">
       <span><b>Friends</b></span>
+      <div class="friends">
+
+        <?php if(isset($friends_db)) : ?>
+          <?php  foreach($friends_db as $key):?>
+              <div class="ami">
+                <img src="">
+                <div>
+                  <span><?= $key['prenom'].' '.$key['nom'] ?></span>
+                  <button  class="btn btn-primary">Voir le profile</button>
+                </div>
+              </div>
+
+
+          <?php  endforeach; endif;?>
+
+
+
+      </div>
     </div>
 
   </section>

@@ -35,8 +35,15 @@ section div{
     width: 20% ;
     height: 918px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    overflow: hidden;
    
+}
+#user-sector
+{
+    display: flex;
+    align-items: center;
+    gap :10px;
 }
 #user img{
     width:50px;
@@ -44,8 +51,11 @@ section div{
     float: left;
     margin: 15px 0 0 10px;
 }
-
-
+/*#user span{
+    font-weight: bold;
+    font-size: 25px;
+}
+*/
 
 #user-section{
 
