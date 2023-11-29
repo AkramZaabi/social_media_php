@@ -1,6 +1,7 @@
 <?php
     if(isset($_POST['submit'])){
         extract($_POST);
+        //var_dump($_POST);
         $sql='SELECT * FROM utilisateur WHERE mail=:mail';
         $res=$pdo->prepare($sql);
         $res->execute([

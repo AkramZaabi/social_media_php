@@ -473,7 +473,9 @@ p:hover img {
     background: #ff365e;
     color: #fff;
 }
-
+.formule h2{
+  text-align: center;
+}
 .formule {
     opacity: 0;
     width: 95%;
@@ -580,6 +582,12 @@ form button:hover {
   justify-content: space-between;
   padding-bottom: 140px;
   gap: 10px;
+}
+.invalide{
+  margin-top:20px;
+  padding:20px;
+  background-color:rgb(255, 192, 203);
+  
 }
 
 .division > div {
