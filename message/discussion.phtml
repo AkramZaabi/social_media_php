@@ -17,6 +17,10 @@
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div  class="nav-content"id="logo" ><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
             <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
+            <div class="dark-light">
+              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+            </div>
             <div  class="nav-content"id="icons">
                 <div><img src="../assets/icons/envelope-fill.svg"></div>
                 <div><img src="../assets/icons/bell-fill.svg"></div>
@@ -45,21 +49,30 @@
             </div>
            </div>
           </div>
-          <div class="msg active">
-           <div class="msg-profile group">
-            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-             <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
-             <path d="M22 8.5l-10 7-10-7" />
-             <path d="M2 15.5l10-7 10 7M12 2v6.5" /></svg>
-           </div>
-           <div class="msg-detail">
-            <div class="msg-username">CodePen Group</div>
-            <div class="msg-content">
-             <span class="msg-message">Aysenur: I love CSS</span>
-             <span class="msg-date">28m</span>
-            </div>
-           </div>
-          </div>
+          <?php
+// Supposons que vous ayez un tableau $amis avec les données nécessaires
+foreach ($amis as $ami) {
+    ?>
+    <div class="msg active">
+       <div class="msg-profile group">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+         <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
+         <path d="M22 8.5l-10 7-10-7" />
+         <path d="M2 15.5l10-7 10 7M12 2v6.5" />
+        </svg>
+       </div>
+       <div class="msg-detail">
+        <div class="msg-username"><?php echo $ami['nom']; ?></div>
+        <div class="msg-content">
+         <span class="msg-message"><?php echo $ami['lastMessage']['contenu']; ?></span>
+         <span class="msg-date"><?php echo $ami['lastMessage']['date']; ?></span>
+        </div>
+       </div>
+    </div>
+    <?php
+}
+?>
+
           <div class="msg online">
            <img class="msg-profile" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="" />
            <div class="msg-detail">
