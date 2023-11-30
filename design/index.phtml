@@ -9,6 +9,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./notification.scss">
     <title>Document</title>
 </head>
 <body>
@@ -18,7 +19,25 @@
         <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
         <div  class="nav-content"id="icons">
             <div><img src="../assets/icons/envelope-fill.svg"></div>
-            <div><img src="../assets/icons/bell-fill.svg"></div>
+            <div>
+                <img src="../assets/icons/bell-fill.svg">
+                <main>
+                    <div class="notification-container">
+                      <h3>Notifications</h3>
+                  
+                    <?php foreach ($notifications as $notification): ?>
+                        <input class="checkbox" type="checkbox" id="size_<?php echo $notification['idNotification']; ?>" value="small" checked />
+                        <label class="notification new" for="size_<?php echo $notification['idNotification']; ?>">
+                            <em><?php echo $notification['idNotification']; ?></em>
+                            <a href="<?php echo $notification['lien']; ?>"></a>
+                            <?php echo $notification['contenu']; ?>
+                            <i class="material-icons dp48 right">clear</i>
+                        </label>
+                    <?php endforeach; ?>
+                      
+                    </div>
+                </main>
+            </div>
             <div><img src="../assets/icons/list.svg"></div>
         </div>
     </nav>

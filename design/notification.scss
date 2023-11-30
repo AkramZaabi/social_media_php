@@ -1,0 +1,144 @@
+@import 'https://fonts.googleapis.com/css?family=Material+Icons';
+
+// NOTIFICATION CONTAINER
+
+.notification-container {
+  &:before {
+    // triangle
+    content: "";
+    position: absolute;
+    top: 1px;
+    right: 0;
+    width: 0;
+    height: 0; 
+    transform: translate(-1rem, -100%);
+    border-left: .75rem solid transparent;
+    border-right: .75rem solid transparent;
+    border-bottom: .75rem solid white;
+  }
+  cursor: default;
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: ($h-gutter*5);
+  width: 600px;
+  font-weight: 300;
+  background: white;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  box-shadow: $container-shadow;
+  h3 {
+    text-transform: uppercase;
+    font-size: 75%;
+    font-weight: 700;
+    color: #84929f;
+    padding: $v-gutter*2 $h-gutter;
+  }
+   em {
+     margin-right: $v-gutter;
+     font-weight: 700;
+     font-size: 115%;
+     color: #b5c4d2;
+     vertical-align: bottom;
+     display: inline-block;
+  }
+
+  animation-name: dropPanel;
+  animation-iteration-count: 1;
+  animation-timing-function: all;
+  animation-duration: .75s;
+}
+
+@keyframes dropPanel {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px) scaleY(.5);
+  }
+}
+
+.notification {
+  box-sizing: border-box;
+  &.new {
+    background: #f3f9fd;
+  }
+}
+
+input.checkbox[type='checkbox']{
+  display: none;
+  + label {
+    display: block;
+    width: 30vw;
+  }
+  &:not(:checked) + label {
+    transition: height .25s;
+    height: 0;
+    padding: 0;
+    font-size: 0;
+    border: none;
+    * {
+      display: none; 
+    }
+  }
+  &:checked + label {  
+    height: ($v-gutter*3) + 1rem;
+    padding: $v-gutter*1.5 $h-gutter*2 $v-gutter $h-gutter;   
+    font-size: 75%;
+    border-top: 1px solid rgba(0,0,0,.1);
+  }
+}
+
+//------------------------------------
+
+@mixin vertical-align($fifty-percent) {
+    top: $fifty-percent;
+    -webkit-transform: translateY(-$fifty-percent);
+    -ms-transform: translateY(-$fifty-percent);
+    transform: translateY(-$fifty-percent);
+}
+
+.red {
+  color: #f8b2a6 !important;
+}
+.teal {
+  color: desaturate(lighten($teal,5%),5%);
+}
+.gray {
+  color: $gray;
+}
+.gray-bg {
+  background: $gray !important;
+}
+.primary-button {
+  background: $primary-button;
+  border: 2px solid $primary-button;
+}
+.secondary-button {
+  border: 2px solid $secondary-button;
+  background: none;
+  color: $secondary-button;
+}
+
+.left {
+  margin-right: $v-gutter;
+  float: left;
+}
+.right {
+  margin-left: $v-gutter;
+  float: right;
+}
+spacer {
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-flow: row;
+  width: 30vw;
+  height: 50vh;
+  margin: 0 -350px;
+  background: white;
+  border-radius: 0 0 .5em .5em;
+  position: relative;
+  box-shadow: $container-shadow;
+  z-index: 999;
+}
