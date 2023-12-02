@@ -3,7 +3,14 @@
     <div class="formule">
         <button aria-label="close modal" class="close-modal modal-trigger1">X</button>
         <h2>SIGN UP</h2>
-            <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return verif1()">
+        <?php if(isset($_POST['submit2'])){ ?>
+            <?php if ($_POST && $user) { ?>
+                <div class="invalide">
+                    <p>Sorry, this email is already in use.<br> Please use a different email address.</p>
+                </div>
+            <?php } ?>
+        <?php } ?>
+            <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>"  method="POST" onsubmit="return verif1()" enctype="multipart/form-data">
                 <div class="division">
                     <div>
                         <div class="input-field">
@@ -19,8 +26,9 @@
                             <input type="text" id="First_Name" name="First_Name" required>
                             <label>First Name</label>
                         </div>
-                        <div class="input-field" style="border: none;">
-                            <input type="file" id="imageUpload" name="image" accept="image/*">
+                        <div class="mt-2" class="file">
+                            <label for="formFile" >Choose a profile photo</label>
+                            <input class="form-control" type="file" id="formFile" required>
                         </div>
                     </div>
                 </div>

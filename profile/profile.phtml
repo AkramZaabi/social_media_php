@@ -1,5 +1,5 @@
 <nav class="nav-bar">
-    <i class="bi bi-arrow-left-circle"></i>
+    <a href="../design/user.php"><i class="bi bi-arrow-left-circle"></i></a>
     <div class="searche">
         <i class="bi bi-search"></i>
         <input type="text" id="recherche" placeholder="searche...">
@@ -12,30 +12,28 @@
     </div>
 </nav>
 <div class="Photo-de-couverture">
-    <?php if($_SESSION['photoCouverture']) { ?>
-        <img src="<?= $_SESSION['photoCouverture'] ?>">
+    <?php if($user['photoCouverture']) { ?>
+        <img src="<?= $user['photoCouverture'] ?>">
     <?php } else { ?>
-        <img src="assets/photo-de-couverture.png">
+        <img src="./assets/photo-de-couverture.png" width="100px">
     <?php } ?>    
 </div>
 <section class="profile">
     <div class="profile-user">
-        <?php if(!$_SESSION['genre']){ ?>
-            <img src="<?= $_SESSION['photoProfile'] ?>">
-        <?php }else if ($_SESSION['genre'] == "male") { ?>
-            <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
-        <?php } else { ?>
-            <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
-        <?php } ?>
+        <?php if(strlen($user['photoProfile'])!=0){ ?>
+            <img src="<?="../".$user['photoProfile']?>">
+        <?php }else{ ?>
+            <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
+        <?php  }?>
         <div class="name">
-            <h1><?= $_SESSION['prenom'].' '.$_SESSION['nom'] ?></h1>
-            <span><?= $_SESSION['metier'] ?></span>
+            <h1><?= $user['prenom'].' '.$user['nom'] ?></h1>
+            <span><?= $user['metier'] ?></span>
             <i class="bi bi-calendar"></i>
         </div>
         <div class="follow">
             <div class="edit">
                 <i class="bi bi-pencil-square"></i>
-                <span>Edit Profile</span>
+                <a href="modify.php?id=<?= $user['idUtilisateur'] ?>">Edit Profile</a>
             </div>
             <div class="add">
                 <i class="bi bi-plus-lg"></i>
@@ -44,17 +42,18 @@
         </div>
         <div class="details">
             <div>
-                <p><?= $_SESSION['Photos'] ?></p>
+                <?php if(isset($user['Photos'])){ ?>
+                <p><?= $user['Photos'] ?></p>
+                <?php } ?>
                 <span>Photos</span>
             </div>
             <div>
-                <p><?= $_SESSION['Followers'] ?></p>
+            <?php if(isset($user['Followers'])){ ?>
+                <p><?= $user['Followers'] ?></p>
+                <?php } ?>
                 <span>Followers</span>
             </div>
-            <div>
-                <p><?= $_SESSION['Folloowing'] ?></p>
-                <span>Folloowing</span>
-            </div>
+          
         </div>
 
     </div>
@@ -67,14 +66,14 @@
         </div>
         <div class="publication">
             <div class="publication1">
-                <?php if(!$_SESSION['genre']){ ?>
-                    <img src="<?= $_SESSION['photoProfile'] ?>">
-                <?php }else if ($_SESSION['genre'] == "male") { ?>
+                <?php if($user['photoProfile']){ ?>
+                    <img src="<?="../".$user['photoProfile']?>">
+                <?php }else if ($user['genre'] == "male") { ?>
                     <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
                 <?php } else { ?>
                     <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
                 <?php } ?>
-                <h3><?= $_SESSION['prenom'].' '.$_SESSION['nom'] ?></h3>
+                <h3><?= $user['prenom'].' '.$user['nom'] ?></h3>
             </div>
         </div>
     </div>

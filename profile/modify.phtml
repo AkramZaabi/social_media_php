@@ -1,0 +1,61 @@
+<nav class="nav-bar">
+    <a href="profile.php"><i class="bi bi-arrow-left-circle"></i></a>
+    <div class="searche">
+        <i class="bi bi-search"></i>
+        <input type="text" id="recherche" placeholder="searche...">
+    </div>
+
+    <div class="menu">
+        <i class="bi bi-envelope-fill"></i>
+        <i class="bi bi-bell-fill"></i>
+        <i class="bi bi-list"></i>
+    </div>
+</nav>
+<div class="modify">
+    <form class="container mt-0" action="<?= $_SERVER['PHP_SELF'] ?>" name="F" method="POST" onsubmit="return verif1()">
+        <input type="hidden" name="id" value="<?= $user['idUtilisateur'] ?>">
+        <div class="mb-3">
+            <label for="Last_Name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" value="<?= $user['nom'] ?>" name="Last_Name" id="Last_Name">
+        </div>
+        <div class="mb-3">
+            <label for="First_Name" class="form-label">First Name</label>
+            <input type="text" class="form-control" value="<?= $user['prenom'] ?>" id="First_Name" name="First_Name">
+        </div>
+        <div class="mb-3">
+            <label for="date" class="form-label">date</label>
+            <input type="date" class="form-control" value="<?= $user['dateNaissance'] ?>" name="date" id="date">
+        </div>
+        <div class="mb-3">
+            <label for="imageProfile" class="form-label">Profile photo</label>
+            <input type="file" class="form-control" id="imageProfile" name="imageProfile">
+        </div>
+        <div class="mb-3">
+            <label for="imageCover" class="form-label">Photo cover</label>
+            <input type="file" class="form-control" id="imageCover" name="imageCover">
+        </div>
+        <div class="mb-3">
+            Gender :
+            <?php if($user['genre'] == "male"){ ?>
+                <input type="radio" name="Genre" value="male" checked>Male
+                <input type="radio" name="Genre" value="female">Female
+            <?php } else {?>
+                <input type="radio" name="Genre" value="male">Male
+                <input type="radio" name="Genre" value="female" checked>Female
+            <?php } ?>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Job</label>
+            <input type="Job" name="job" class="form-control" value="<?= $user['metier'] ?>" id="exampleInputEmail1">
+        </div>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Mail</label>
+            <input type="email" name="mail" class="form-control" value="<?= $user['mail'] ?>" id="mail">
+        </div>
+        <div class="mb-3" style="display:none">
+            <label for="pwd" class="form-label">Password</label>
+            <input type="password" name="pwd" value="<?= $user['mdps'] ?>" class="form-control" id="pwd">
+        </div>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
