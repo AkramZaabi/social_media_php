@@ -70,29 +70,31 @@
           </div>
           <div class="chat-area-main">
           <?php 
-            foreach($results_messages as $message) {
-                if($message['idEmetteur'] == $id) { ?>
-                    <div class="chat-msg owner">
-                        <div class="chat-msg-profile">
-                        <img class="msg-profile" src="../<?=$profile_user['photoProfile']?>" width="100px">
-                            <div class="chat-msg-date"><?= $message['heureMsg'] ?></div>
-                        </div>
-                        <div class="chat-msg-content">
-                            <div class="chat-msg-text"><?= $message['contenuMsg'] ?></div>
-                        </div>
-                    </div>
-                <?php } else { ?>
-                    <div class="msg online">
-                    <img class="msg-profile" src="../<?=$profile_ami['photoProfile']?>" width="100px">
-                      <div class="msg-detail">
-                          <div class="msg-username"><?= $profile_ami['prenom'].' '.$profile_ami['nom'] ?></div>
-                          <div class="msg-content">
-                              <span class="msg-message"><?= $message['contenuMsg'] ?></span>
-                              <span class="msg-date"><?= $message['heureMsg'] ?></span>
+            if( isset($_GET['id_ami'])){
+              foreach($results_messages as $message) {
+                  if($message['idEmetteur'] == $id) { ?>
+                      <div class="chat-msg owner">
+                          <div class="chat-msg-profile">
+                          <img class="msg-profile" src="../<?=$profile_user['photoProfile']?>" width="100px">
+                              <div class="chat-msg-date"><?= $message['heureMsg'] ?></div>
+                          </div>
+                          <div class="chat-msg-content">
+                              <div class="chat-msg-text" style="padding:10px;"><?= $message['contenuMsg'] ?></div>
                           </div>
                       </div>
-                    </div>
-                <?php }
+                  <?php } else { ?>
+                      <div class="msg online">
+                      <img class="msg-profile" src="../<?=$profile_ami['photoProfile']?>" width="100px">
+                        <div class="msg-detail">
+                            <div class="msg-username"><?= $profile_ami['prenom'].' '.$profile_ami['nom'] ?></div>
+                            <div class="msg-content">
+                                <span class="msg-message"><?= $message['contenuMsg'] ?></span>
+                                <span class="msg-date"><?= $message['heureMsg'] ?></span>
+                            </div>
+                        </div>
+                      </div>
+                  <?php }
+              }
             }?>
 
 
