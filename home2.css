@@ -583,6 +583,9 @@ form button:hover {
   padding-bottom: 140px;
   gap: 10px;
 }
+.file label{
+  font-size: 15px;
+}
 .invalide{
   margin-top:20px;
   padding:20px;

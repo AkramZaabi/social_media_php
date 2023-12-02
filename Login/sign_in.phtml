@@ -3,15 +3,14 @@
     <div class="formule">
         <button aria-label="close modal" class="close-modal modal-trigger">X</button>
         <h2>SING IN</h2>
-        <?php if ($_POST) { ?>
+        <?php if(isset($_POST['submit'])){ ?>
             <div class="invalide">
                 <?php if (!$user) { ?>
                     <p>Sorry, the email and password entered are incorrect</p>
                 <?php } else if (!password_verify($pwd, $user['mdps'])) { ?>
-                    <p>Incorrect password. Please verify your password and try again.</p>
+                    <p>Incorrect password.<br> Please verify your password and try again.</p>
                 <?php } ?>
             </div>
-            <button class="btn sign modal-trigger" type="submit" style="display:none;"><a href="#">Sign in</a></button>
         <?php } ?>
 
         
