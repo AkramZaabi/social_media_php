@@ -80,19 +80,22 @@
      <div id="user-sector"> <img src="../assets/icons/profile1.png"><span>User name</span></div>
      <div class="mt-5 span-friends"> <span>friends-request:</span></div>
      <div id="requests"> 
-          <?php if(isset($friends_res)):?>
-            <?php  foreach($friends_res as $key): ?>
-            <div class="card mt-5 " >
+          <?php if(isset($friends_req)):?>
+            <?php  foreach($friends_req as $key): ?>
+            <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded" >
           <?php  //echo count($friends_request) ; ?>
-            <img src="../<?=$key['photoProfile']?>">
+          <div class="req-content">
+            <img src="../<?=$key['photoProfile']?>">  
             <span><?=$key['prenom'].' '.$key['nom'] ?></span>
-                <div><i class="bi bi-plus-square me-3"></i><i class="bi bi-dash-square"></i></div>
           </div>
+                <div class="mt-1 buttons " style="justify-content:center"><a href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">confirmer</button></a><a href="friend-delete.php?id_ami=<?=$key['idUtilisateur'] ?>"><button class="btn  btn-secondary">annuler</button></a></div>
+        
+            </div>
           
             <?php endforeach; ?>
           <?php endif; ?>
      </div>
-     <div class="friends"></div>
+
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section">
       <div id="amis" class="card">
@@ -136,18 +139,19 @@
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="notifications">
       <span><b>Friends</b></span>
-      <div class="friends">
+      <div id="friends">
 
-        <?php if(isset($friends_db)) : echo $friends_db.length?>
-          <?php  foreach($friends_db as $key):?>
-              <div class="ami">
-                <img src="">
-                <div>
-                  <span><?= $key['prenom'].' '.$key['nom'] ?></span>
-                  <button  class="btn btn-primary">Voir le profile</button>
-                </div>
-              </div>
-
+        <?php if(isset($friends_res)): ?>
+          <?php  foreach($friends_res as $key):?>
+            <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded" >
+          <?php  //echo count($friends_request) ; ?>
+          <div class="req-content">
+            <img src="../<?=$key['photoProfile']?>">  
+            <span><?=$key['prenom'].' '.$key['nom'] ?></span>
+               </div>
+                <div class="mt-1 buttons " style="justify-content:center"><a href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">Voir profile</button></a></div>
+        
+            </div>
 
           <?php  endforeach; endif;?>
 
