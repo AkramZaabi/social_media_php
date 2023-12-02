@@ -3,6 +3,18 @@
     <div class="formule">
         <button aria-label="close modal" class="close-modal modal-trigger">X</button>
         <h2>SING IN</h2>
+        <?php if(isset($_POST['submit'])){ ?>
+            <div class="invalide">
+                <?php if (!$user) { ?>
+                    <p>Sorry, the email and password entered are incorrect</p>
+                <?php } else if (!password_verify($pwd, $user['mdps'])) { ?>
+                    <p>Incorrect password.<br> Please verify your password and try again.</p>
+                <?php } ?>
+            </div>
+        <?php } ?>
+
+        
+
             <form name="F" id="contactForm" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return verif()">
                 <div class="input-field">
                     <input type="text" name="mail" id="mail" required>

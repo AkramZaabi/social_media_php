@@ -46,7 +46,6 @@ if (!defined('DB_NAME')) {
     $admin = $query_admin->fetchAll();
     $class = $query_class->fetchAll();
     $users = $query_user->fetchAll();
-    $amis=$query_amis->fetchAll();
     $publications = $query_publication->fetchAll();
     $participant = $query_amis->fetchAll();
 
