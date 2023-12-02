@@ -32,10 +32,18 @@ section div{
 }
 #user{
 
-    width: 20%;
+    width: 20% ;
     height: 918px;
-    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
    
+}
+#user-sector
+{
+    display: flex;
+    align-items: center;
+    gap :10px;
 }
 #user img{
     width:50px;
@@ -43,13 +51,12 @@ section div{
     float: left;
     margin: 15px 0 0 10px;
 }
-#user span{
-    width:100px;
-    height:50px;
-    float: left;
-    margin: 25px 0 0 10px;
-    
+/*#user span{
+    font-weight: bold;
+    font-size: 25px;
 }
+*/
+
 #user-section{
 
     width: 60%;
@@ -98,10 +105,15 @@ section div{
     
    
 }
+.navbar-nav{
+    display: flex;
+    flex-direction: column;
+}
 #page{
     width: 100%;
     height: 70%;
     display: flex;
+    place-items: center;
 }
 #logo {
     margin-left: 50px;
@@ -155,4 +167,17 @@ section div{
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+}
+
+.friend-search{
+    display: flex;
+}
+.span-friend{
+
+    font-weight: bold;
+    font-size: 25px;
+}
+.friend-search span{
+        font-weight: bold;
+        font-size: 25px;
 }

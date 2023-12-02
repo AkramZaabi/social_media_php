@@ -1,11 +1,16 @@
 <?php
     session_start();
-    if(!isset($_SESSION['nom'])){
-        header('Location: ../homePage.php');
+    if(!isset($_SESSION['idUtilisateur'])){
+        header('Location: ../index.php');
         exit();
     }
-    var_dump($_SESSION);
-    include '../DBconnect.php';
+    include '../db_connect/db_connect.php';
+    $req='SELECT * FROM utilisateur where idUtilisateur=?';
+    $res=$pdo->prepare($req);
+    $res->execute([
+        $_SESSION['idUtilisateur'],
+    ]);
+    $user=$res->fetch();
     $template="profile";
     $titredepage="Profile";
     include 'layout.phtml';
