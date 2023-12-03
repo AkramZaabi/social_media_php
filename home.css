@@ -658,6 +658,14 @@ form button:hover {
     width: 100%;
   }
 }  
+.footer{
+
+  position: fixed;
+  bottom : 0;
+  display: flex;
+  justify-self : center;
+  align-self: center;
+}
 
 @media (max-width: 573px) {
   .div-logo {

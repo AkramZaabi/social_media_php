@@ -16,7 +16,7 @@
     <div class="app">
         <nav class="shadow p-3 mb-5 bg-white rounded">
             <div  class="nav-content"id="logo" ><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
-            <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
+            <div class="nav-content footer" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"  style="margin-bottom:0px"></div>
             <div class="dark-light">
               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
@@ -35,10 +35,8 @@
           ?>
           <div class="msg active">
             <div class="msg-profile group">
-              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-                <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
-                <path d="M22 8.5l-10 7-10-7" />
-                <path d="M2 15.5l10-7 10 7M12 2v6.5" />
+              <img  src="../<?=$ami['photoProfile']?>"  >
+              
               </svg>
             </div>
             <div class="msg-detail">
@@ -68,34 +66,38 @@
            </div>
           </div>
           <div class="chat-area-main">
+             
+          <?php if (isset($results_message_ami)) :
+    foreach ($results_message_ami as $msg) :
+        if ($msg['idEmetteur'] == $profile_user['idUtilisateur']) {
+                ?>
+            <div class="chat-msg owner">
+                <div class="chat-msg-profile">
+                    <img class="chat-msg-img" src="../<?=$profile_user['photoProfile']?>" alt="" />
+                    <div class="chat-msg-date"><?=$msg['dateMsg']?></div>
+                </div>
+                <div class="chat-msg-content">
+                    <div class="chat-msg-text"><?=$msg['contenuMsg']?></div>
+                </div>
+            </div>
+        <?php } else {  ?>
+          <div class="chat-msg">
+                <div class="chat-msg-profile">
+                    <img class="chat-msg-img" src="../<?=$profile_ami['photoProfile']  ?>" alt="" />
+                    <div class="chat-msg-date"><?=$msg['dateMsg']?></div>
+                </div>
+                <div class="chat-msg-content">
+                    <div class="chat-msg-text"><?=$msg['contenuMsg']?></div>
+                </div>
+          </div>
+        <?php } ; ?>
+    <?php endforeach;
+endif; ?>
 
-           <div class="chat-msg">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%2812%29.png" alt="" />
-             <div class="chat-msg-date">Message seen 3.16pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Egestas tellus rutrum tellus pellentesque</div>
-            </div>
-           </div>
-           <div class="chat-msg">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%283%29+%281%29.png" alt="" class="account-profile" alt="">
-             <div class="chat-msg-date">Message seen 3.16pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et.</div>
-            </div>
-           </div>
-           <div class="chat-msg owner">
-            <div class="chat-msg-profile">
-             <img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%281%29.png" alt="" />
-             <div class="chat-msg-date">Message seen 2.50pm</div>
-            </div>
-            <div class="chat-msg-content">
-             <div class="chat-msg-text">Tincidunt arcu non sodales😂</div>
-            </div>
-           </div>
+           <!-- ami section -->
+          
+           <!-- ends here -->
+          <!-- owner -->
            <div class="chat-msg">
             <div class="chat-msg-profile">
              <img class="chat-msg-img" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3364143/download+%282%29.png" alt="">
@@ -105,6 +107,7 @@
              <div class="chat-msg-text">Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et🥰</div>
             </div>
            </div>
+          <!--owner ends here --> 
           </div>
           <div class="chat-area-footer">
            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
@@ -126,13 +129,10 @@
          <div class="detail-area">
           <div class="detail-area-header">
            <div class="msg-profile group">
-            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-             <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
-             <path d="M22 8.5l-10 7-10-7" />
-             <path d="M2 15.5l10-7 10 7M12 2v6.5" /></svg>
+           <img src="../assets/48107a1c8c80edaedcd256541eec1431.png" style="border-radius:20%">
            </div>
-           <div class="detail-title">CodePen Group</div>
-           <div class="detail-subtitle">Created by Aysenur, 1 May 2020</div>
+           <div class="detail-title">CollabSpot Group</div>
+           <div class="detail-subtitle">Created by Akram, 2 december 2023</div>
            <div class="detail-buttons">
             <button class="detail-button">
              <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
