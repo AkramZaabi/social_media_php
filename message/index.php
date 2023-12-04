@@ -8,11 +8,23 @@
     }
     $id =$_SESSION['idUtilisateur'];
 $confirm = 1 ;    
+if (isset($_POST['submit'])) {
+    var_dump($_POST);
+
+    $message = $_POST['message'];
+    $id_ami = $_POST['id_ami'];
+    $currentDate = date('Y-m-d');
+    $heure = date("h:i:sa");
+
+    $sql = "INSERT INTO message (idEmetteur, idRecepteur, contenuMsg, dateMsg, heureMsg) VALUES (?, ?, ?, ?, ?)";
+    $msg = $pdo->prepare($sql);
+    $msg->execute([$id, $id_ami, $message, $currentDate, $heure]);
+}
     if( isset($_GET['id_ami']))
     {
-        var_dump ($_GET['id_ami']);
+        $id_ami = $_GET['id_ami'];
 
-        
+        var_dump($id_ami);
         
         $message_ami =  $pdo->prepare("SELECT *from message where (idEmetteur=? and idRecepteur=?) or (idEmetteur=? and idRecepteur=?) ORDER by idMsg");
         $message_ami->execute([$_GET['id_ami'],$id,$id,$_GET['id_ami']]);
@@ -27,6 +39,8 @@ $confirm = 1 ;
         $profile_ami->execute([$id]);
         $profile_ami= $profile_ami->fetch(PDO::FETCH_ASSOC);
     }
+   
+    
 $idUtilisateur = 1;
 $infosAmis = [];
 

@@ -11,8 +11,16 @@
     $id_ami = $_GET['id_ami'];
     if (isset($id_ami)) {
        
-        $query = $pdo->prepare("INSERT INTO amis (id_user, id_ami, genreAmitie) VALUES (?, ?, ?)");
-        $query->execute([$id_ami, $id_user, $request]);
+            $already = 1 ; 
+        
+   /* $exist = $pdo->prepare("SELECT * FROM amis WHERE (id_user = ? AND id_ami = ? AND genreAmitie = ?) and (id_user = ? AND id_ami = ? AND genreAmitie = ?)  ");
+    $exist->execute([$id_user, $id_ami, $already, $id_ami,$id_user, $already]);
+    $check_friend = $exist->fetch();*/
+        
+            $query = $pdo->prepare("INSERT INTO amis (id_user, id_ami, genreAmitie) VALUES (?, ?, ?)");
+            $query->execute([$id_ami, $id_user, $request]);
+        
+    
     }
    header('Location: user.php');
     
