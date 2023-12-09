@@ -77,7 +77,7 @@
   </div>
   <section>
     <div class=" shadow p-3 mb-5 bg-white rounded" id="user">
-     <div id="user-sector"> <img src="../assets/icons/profile1.png"><span>User name</span></div>
+     <div id="user-sector"> <img src="../assets/icons/profile1.png"><a href="../profile/profile.php"><span><?=$user['nom'].' '.$user['prenom'] ?></span></a></div>
      <div class="mt-5 span-friends"> <span>friends-request:</span></div>
      <div id="requests"> 
           <?php if(isset($friends_req)):?>

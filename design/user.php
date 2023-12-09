@@ -6,7 +6,9 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 $id =$_SESSION['idUtilisateur'];
 
-
+$user = $pdo->prepare("SELECT nom,prenom from utilisateur where idUtilisateur = ?");
+$user->execute([$id]);
+$user = $user->fetch();
 $template="user";
 $confirm=1;
 $titredepage="CollabSpot";

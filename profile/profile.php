@@ -5,6 +5,7 @@
         exit();
     }
     include '../db_connect/db_connect.php';
+    
     $req='SELECT * FROM utilisateur where idUtilisateur=?';
     $res=$pdo->prepare($req);
     $res->execute([

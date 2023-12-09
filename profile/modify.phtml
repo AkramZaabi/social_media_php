@@ -12,7 +12,7 @@
     </div>
 </nav>
 <div class="modify">
-    <form class="container mt-0" action="<?= $_SERVER['PHP_SELF'] ?>" name="F" method="POST" onsubmit="return verif1()">
+    <form class="container mt-0" action="<?= $_SERVER['PHP_SELF'] ?>" name="F" method="POST" onsubmit="return verif1()" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $user['idUtilisateur'] ?>">
         <div class="mb-3">
             <label for="Last_Name" class="form-label">Last Name</label>

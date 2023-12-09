@@ -9,7 +9,7 @@ if(isset($_GET['id_ami']))
     // Assuming "genreAmitie" is the column you want to update in the "todos" table
     $sql = $pdo->prepare("UPDATE amis SET genreAmitie = ? WHERE id_ami = ?");
     $sql->execute([$confirm,$id_ami]);
-    
+     
 }
 header('Location:./user.php');
 
