@@ -149,8 +149,8 @@
             <img src="../<?=$key['photoProfile']?>">  
             <span><?=$key['prenom'].' '.$key['nom'] ?></span>
                </div>
-                <div class="mt-1 buttons " style="justify-content:center"><a href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">Voir profile</button></a></div>
-        
+                <div class="mt-1 buttons " style="justify-content:center"><a href="../profile/profile.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">Voir profile</button></a></div>
+                
             </div>
 
           <?php  endforeach; endif;?>

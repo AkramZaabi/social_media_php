@@ -32,14 +32,17 @@
             <i class="bi bi-calendar"></i>
         </div>
         <div class="follow">
+            <?php if(empty($id_ami)):?>
             <div class="edit">
                 <i class="bi bi-pencil-square"></i>
                 <a href="modify.php?id=<?= $user['idUtilisateur'] ?>">Edit Profile</a>
             </div>
+            
             <div class="add">
                 <i class="bi bi-plus-lg"></i>
                 <span>Add a story</span>
             </div>
+            <?php endif; ?>
         </div>
         <div class="details">
             <div>
@@ -67,13 +70,8 @@
         </div>
         <div class="publication">
             <div class="publication1">
-                <?php if(!$user['genre']){ ?>
+            
                     <img src="<?= $user['photoProfile'] ?>">
-                <?php }else if ($user['genre'] == "male") { ?>
-                    <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
-                <?php } else { ?>
-                    <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
-                <?php } ?>
                 <h3><?= $user['prenom'].' '.$user['nom'] ?></h3>
             </div>
         </div>
