@@ -1,6 +1,6 @@
 <?php
   
-include 'C:\xampp\htdocs\project-php-sem1\db_connect/db_connect.php';
+require 'C:\xampp\htdocs\project-php-sem1\db_connect/db_connect.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
