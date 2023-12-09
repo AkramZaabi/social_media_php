@@ -1,180 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./discussion.scss">
-    <link rel="stylesheet" href="../design/style.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./discussion.scss">
+  <link rel="stylesheet" href="../design/style2.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="app">
-        <nav class="shadow p-3 mb-5 bg-white rounded">
-            <div  class="nav-content"id="logo" ><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
-            <div class="nav-content" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud"></div>
-            <div class="dark-light">
-              <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
-            </div>
-            <div  class="nav-content"id="icons">
-                <div><img src="../assets/icons/envelope-fill.svg"></div>
-                <div><img src="../assets/icons/bell-fill.svg"></div>
-                <div><img src="../assets/icons/list.svg"></div>
-            </div>
-        </nav>
-        <div class="wrapper">
-         <div class="conversation-area">
-          <?php
-          if(isset($infosAmis)){
-            foreach ($infosAmis as $ami) {
-          ?>
-          <div class="msg active">
-            <div class="msg-profile group">
-                <img src="../<?=$ami['photoProfile']?>" width="100px">
-                <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
-                <path d="M22 8.5l-10 7-10-7" />
-                <path d="M2 15.5l10-7 10 7M12 2v6.5" />
-              </svg>
-            </div>
-            <div class="msg-detail">
-              <div class="msg-username"><?php echo $ami['nom'].' '.$ami['prenom']; ?></div>
-              <div class="msg-content">
-                <?php if (isset($ami['lastMessage'])) : ?>
-                  <span class="msg-message"><?php echo $ami['lastMessage']['contenu']; ?></span>
-                  <span class="msg-date"><?php echo $ami['lastMessage']['date']; ?></span>
-                <?php else : ?>
-                  <span class="msg-message">Aucun message</span>
-                  <span class="msg-date">-</span>
-                 <a href="index.php?id_ami=<?=$ami['idUtilisateur']?>"> <button class="btn btn-primary">Chat</button></a>
-                <?php endif; ?>
+  <div class="app">
+    <nav class="shadow p-3 mb-5 bg-white rounded">
+      <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
+      <div class="nav-content footer" id="barre-rech"> <input class="form-control me-2" type="search" placeholder="Chercher un étudiant..." aria-label="Search" id="search_etud" style="margin-bottom:0px"></div>
+      <div class="dark-light">
+        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      </div>
+      <div class="nav-content" id="icons">
+        <div><img src="../assets/icons/envelope-fill.svg"></div>
+        <div><img src="../assets/icons/bell-fill.svg"></div>
+        <div><img src="../assets/icons/list.svg"></div>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="conversation-area">
+        <?php
+        if (isset($infosAmis)) {
+          foreach ($infosAmis as $ami) {
+        ?>
+            <div class="msg active">
+              <div class="msg-profile group">
+                <img src="../<?= $ami['photoProfile'] ?>">
+
+                </svg>
+              </div>
+              <div class="msg-detail">
+                <div class="msg-username"><?php echo $ami['nom'] . ' ' . $ami['prenom']; ?></div>
+                <div class="msg-content">
+                  <?php if (isset($ami['lastMessage'])) : ?>
+                    <span class="msg-message"><?php echo $ami['lastMessage']['contenu']; ?></span>
+                    <span class="msg-date"><?php echo $ami['lastMessage']['date']; ?></span>
+                  <?php else : ?>
+                    <span class="msg-message">Aucun message</span>
+                    <span class="msg-date">-</span>
+                    <a href="index.php?id_ami=<?= $ami['idUtilisateur'] ?>"> <button class="btn btn-primary">Chat</button></a>
+                  <?php endif; ?>
+                </div>
               </div>
             </div>
+        <?php
+          }
+        }
+        ?>
+        <button class="add"></button>
+        <div class="overlay"></div>
+      </div>
+      <div class="chat-area">
+        <div class="chat-area-header">
+          <div class="chat-area-group">
           </div>
-          <?php
-            }}
+        </div>
+        <div class="chat-area-main">
+
+          <?php if (isset($results_message_ami)) :
+            foreach ($results_message_ami as $msg) :
+              if ($msg['idEmetteur'] == $profile_user['idUtilisateur']) {
           ?>
-          <button class="add"></button>
-          <div class="overlay"></div>
-         </div>
-         <div class="chat-area">
-          <div class="chat-area-header">
-           <div class="chat-area-group">
-            <img class="chat-area-profile" src="../assets/akrem.jpg" alt="" />
-           </div>
-          </div>
-          <div class="chat-area-main">
-          <?php 
-            if( isset($_GET['id_ami'])){
-              foreach($results_messages as $message) {
-                  if($message['idEmetteur'] == $id) { ?>
-                      <div class="chat-msg owner">
-                          <div class="chat-msg-profile">
-                          <img class="msg-profile" src="../<?=$profile_user['photoProfile']?>" width="100px">
-                              <div class="chat-msg-date"><?= $message['heureMsg'] ?></div>
-                          </div>
-                          <div class="chat-msg-content">
-                              <div class="chat-msg-text" style="padding:10px;"><?= $message['contenuMsg'] ?></div>
-                          </div>
-                      </div>
-                  <?php } else { ?>
-                      <div class="msg online">
-                      <img class="msg-profile" src="../<?=$profile_ami['photoProfile']?>" width="100px">
-                        <div class="msg-detail">
-                            <div class="msg-username"><?= $profile_ami['prenom'].' '.$profile_ami['nom'] ?></div>
-                            <div class="msg-content">
-                                <span class="msg-message"><?= $message['contenuMsg'] ?></span>
-                                <span class="msg-date"><?= $message['heureMsg'] ?></span>
-                            </div>
-                        </div>
-                      </div>
-                  <?php }
-              }
-            }?>
+                <div class="chat-msg owner">
+                  <div class="chat-msg-profile">
+                    <img class="chat-msg-img" src="../<?= $profile_user['photoProfile'] ?>" alt="" />
+                    <div class="chat-msg-date"><?= $msg['dateMsg'] ?></div>
+                  </div>
+                  <div class="chat-msg-content">
+                    <div class="chat-msg-text" style="padding:10px;"><?= $msg['contenuMsg'] ?></div>
+                  </div>
+                </div>
+              <?php } else {  ?>
+                <div class="chat-msg">
+                  <div class="chat-msg-profile">
+                    <img class="chat-msg-img" src="../<?= $profile_ami['photoProfile']  ?>" alt="" />
+                    <div class="chat-msg-date"><?= $msg['dateMsg'] ?></div>
+                  </div>
+                  <div class="chat-msg-content">
+                    <div class="chat-msg-text"><?= $msg['contenuMsg'] ?></div>
+                  </div>
+                </div>
+              <?php }; ?>
+          <?php endforeach;
+          endif; ?>
 
+          <!-- ami section -->
 
-            
-
-           
-
-
-
-          </div>
+          <!-- ends here -->
+          <!-- owner -->
+          <!--owner ends here -->
+        </div>
+        <?php if( isset($_GET['id_ami'])){ ?>
+          <form action="index.php?id_ami=<?=$id_ami ?>" method="POST">
           <div class="footer">
-            <div class="chat-area-footer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
-              <path d="M23 7l-7 5 7 5V7z" />
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <path d="M21 15l-5-5L5 21" /></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 8v8M8 12h8" /></svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
-              <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" /></svg>
-            <input type="text" placeholder="Type something here..." />
-            <button class="btn btn-primary">send</button>
+              <div class="chat-area-footer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
+                  <path d="M23 7l-7 5 7 5V7z" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v8M8 12h8" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-paperclip">
+                  <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" />
+                </svg>
+                <input type="text" placeholder="Type something here..." name="message" required>
+                <?php  if(isset($id_ami)): ?>
+                <input type="hidden" value="<?=$id_ami?>" name="id_ami">
+                <?php endif; ?>
+                <button type="submit" name="submit" class="btn btn-primary">send</button>
+              </div>
             </div>
+          </form>
+          <?php } ?>
+      </div>
+      <div class="detail-area">
+        <div class="detail-area-header">
+          <div class="msg-profile group">
+            <img src="../assets/48107a1c8c80edaedcd256541eec1431.png" style="border-radius:20%">
           </div>
-         </div>
-         <div class="detail-area">
-          <div class="detail-area-header">
-           <div class="msg-profile group">
-            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-             <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 22v-6.5" />
-             <path d="M22 8.5l-10 7-10-7" />
-             <path d="M2 15.5l10-7 10 7M12 2v6.5" /></svg>
-           </div>
-           <div class="detail-title">CodePen Group</div>
-           <div class="detail-subtitle">Created by Aysenur, 1 May 2020</div>
-           <div class="detail-buttons">
+          <div class="detail-title">CollabSpot Group</div>
+          <div class="detail-subtitle">Created by Akram, 2 december 2023</div>
+          <div class="detail-buttons">
             <button class="detail-button">
-             <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-             </svg>
-             Call Group
+              <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+              </svg>
+              Call Group
             </button>
             <button class="detail-button">
-             <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
-              <path d="M23 7l-7 5 7 5V7z" />
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2" /></svg>
-             Video Chat
+              <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="currentColor" stroke-width="0" stroke-linecap="round" stroke-linejoin="round" class="feather feather-video">
+                <path d="M23 7l-7 5 7 5V7z" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Video Chat
             </button>
-           </div>
           </div>
-          <div class="detail-changes">
-           <input type="text" placeholder="Search in Conversation">
-           <div class="detail-change">
+        </div>
+        <div class="detail-changes">
+          <input type="text" placeholder="Search in Conversation">
+          <div class="detail-change">
             Change Color
             <div class="colors">
-             <div class="color blue selected" data-color="blue"></div>
-             <div class="color purple" data-color="purple"></div>
-             <div class="color green" data-color="green"></div>
-             <div class="color orange" data-color="orange"></div>
+              <div class="color blue selected" data-color="blue"></div>
+              <div class="color purple" data-color="purple"></div>
+              <div class="color green" data-color="green"></div>
+              <div class="color orange" data-color="orange"></div>
             </div>
-           </div>
-           <div class="detail-change">
+          </div>
+          <div class="detail-change">
             Change Emoji
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-thumbs-up">
-             <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" /></svg>
-           </div>
+              <path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3zM7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3" />
+            </svg>
           </div>
-          <div class="detail-photos">
-           <div class="detail-photo-title">
+        </div>
+        <div class="detail-photos">
+          <div class="detail-photo-title">
             <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image">
-             <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-             <circle cx="8.5" cy="8.5" r="1.5" />
-             <path d="M21 15l-5-5L5 21" /></svg>
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
             Shared photos
-           </div>
-           <div class="detail-photo-grid">
+          </div>
+          <div class="detail-photo-grid">
             <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2168&q=80" />
             <img src="https://images.unsplash.com/photo-1516085216930-c93a002a8b01?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" />
             <img src="https://images.unsplash.com/photo-1458819714733-e5ab3d536722?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=933&q=80" />
@@ -184,28 +191,29 @@
             <img src="https://images.unsplash.com/photo-1560393464-5c69a73c5770?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1301&q=80" />
             <img src="https://images.unsplash.com/photo-1506619216599-9d16d0903dfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2249&q=80" />
             <img src="https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2309&q=80" />
-       
+
             <img src="https://images.unsplash.com/photo-1473170611423-22489201d919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80" />
             <img src="https://images.unsplash.com/photo-1579613832111-ac7dfcc7723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" />
             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2189&q=80" />
-           </div>
-           <div class="view-more">View More</div>
           </div>
-          <a href="https://twitter.com/AysnrTrkk" class="follow-me" target="_blank">
-           <span class="follow-text">
+          <div class="view-more">View More</div>
+        </div>
+        <a href="https://twitter.com/AysnrTrkk" class="follow-me" target="_blank">
+          <span class="follow-text">
             <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
-             <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
             </svg>
             Follow me on Twitter
-           </span>
-           <span class="developer">
+          </span>
+          <span class="developer">
             <img src="https://pbs.twimg.com/profile_images/1253782473953157124/x56UURmt_400x400.jpg" />
             Aysenur Turk — @AysnrTrkk
-           </span>
-          </a>
-         </div>
-        </div>
-       </div>
-       <script src="./discussion.js"></script>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="./discussion.js"></script>
 </body>
+
 </html>
