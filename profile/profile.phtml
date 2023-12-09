@@ -71,7 +71,11 @@
         <div class="publication">
             <div class="publication1">
             
-                    <img src="<?= $user['photoProfile'] ?>">
+            <?php if(isset($user['photoProfile'])){ ?>
+       <img src="../<?=$user['photoProfile']?>" width="100px">
+       <?php }else{ ?>
+        <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
+        <?php  }?>
                 <h3><?= $user['prenom'].' '.$user['nom'] ?></h3>
             </div>
         </div>
