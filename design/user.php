@@ -6,8 +6,12 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 $id =$_SESSION['idUtilisateur'];
 
-
+$user = $pdo->prepare("SELECT nom,prenom from utilisateur where idUtilisateur = ?");
+$user->execute([$id]);
+$user = $user->fetch();
+$template="user";
 $confirm=1;
+$titredepage="CollabSpot";
 if(!isset($friends_res))
 {
     
@@ -28,9 +32,8 @@ if(!isset ($friends_request))
    
 
 }
-$template="user";
 
-$titredepage="CollabSpot";
-include '../layout.phtml';
+ 
+ include '../layout.phtml';
 
 ?>

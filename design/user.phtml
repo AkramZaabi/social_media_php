@@ -4,30 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style2.css">
   <title>Document</title>
 </head>
 
 <body>
-
+ 
   <nav class="shadow p-3 mb-5 bg-white rounded">
-    <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px"
-        height="150px"></div>
-    <div class="nav-content" id="barre-rech">
-      <form style="display:flex" action="friends-search.php" method="GET">
-        <button type="submit" class="btn btn-outline-primary me-2" width="200px"><svg xmlns="http://www.w3.org/2000/svg"
-            width="16" height="16" fill="currentColor" class="bi bi-search mb-2" viewBox="0 0 16 16">
-            <path
-              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-          </svg></button><input required class="form-control me-2" type="text" placeholder="Chercher un étudiant..."
-          name="search_friends" aria-label="Search" id="search_etud">
-    </div>
-    </form>
+    <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
+    <div class="nav-content" id="barre-rech" ><form style="display:flex" action="friends-search.php" method="GET">
+     <button type="submit"class="btn btn-outline-primary me-2" width="200px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mb-2" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg></button><input required class="form-control me-2" type="text" placeholder="Chercher un étudiant..." name="search_friends" aria-label="Search" id="search_etud"></div>
+        </form>
     <div class="nav-content" id="icons">
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,65 +46,55 @@
 
     </div>
   </nav>
-
-  <?php if (isset($msg) && $msg==1) { ?>
-
-
-  <div class="container friends-search ">
-    <div class="alert alert-success" role="alert" style="width:18rem;">
-      amis trouvées!!;
-    </div>
-    <?php 
+  
+    <?php if (isset($msg) && $msg==1) { ?>
+    
+   
+      <div class="container friends-search ">
+      <div  class="alert alert-success" role="alert" style="width:18rem;">
+          amis trouvées!!;
+        </div>
+       <?php 
       foreach ($friends as $key) :
     ?>
-    <div class="card" style="height: 12rem; width:18rem;">
-      <div class="friend-search"><img src="../<?=$key['photoProfile']?>" width="100px" height="80px">
-        <span class="ms-2 span-friend">
-          <?=$key['nom'].' '.$key['prenom']?>
-        </span>
-      </div>
-      <a href="friend-request.php?id_ami=<?=$key['idUtilisateur']; ?>"><button class="btn btn-primary">ajouter
-          ami</button></a>
-    </div>
+        <div class="card" style="height: 12rem; width:18rem;">
+          <div class="friend-search"><img src="../<?=$key['photoProfile']?>" width="100px" height="80px">
+          <span class="ms-2 span-friend"><?=$key['nom'].' '.$key['prenom']?></span></div>
+          <a href="friend-request.php?id_ami=<?=$key['idUtilisateur']; ?>"><button class="btn btn-primary">ajouter ami</button></a>
+        </div>
     <?php
       endforeach;
     }else{
       if(isset($msg))
       { 
     ?>
-    <div class="container friends-search ">
-      <div class="alert alert-danger" role="alert" style="width:18rem;">
-        amis non trouvées!!;
-      </div>
-    </div>
-    <?php  } } ?>
+     <div class="container friends-search ">
+     <div  class="alert alert-danger" role="alert" style="width:18rem;">
+          amis non trouvées!!;
+        </div>
+     </div>
+      <?php  } } ?>
   </div>
   <section>
     <div class=" shadow p-3 mb-5 bg-white rounded" id="user">
-      <div id="user-sector"> <img src="../assets/icons/profile1.png"><span>User name</span></div>
-      <div class="mt-5 span-friends"> <span>friends-request:</span></div>
-      <div id="requests">
-        <?php if(isset($friends_req)):?>
-        <?php  foreach($friends_req as $key): ?>
-        <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded">
+     <div id="user-sector"> <img src="../assets/icons/profile1.png"><a href="../profile/profile.php"><span><?=$user['nom'].' '.$user['prenom'] ?></span></a></div>
+     <div class="mt-5 span-friends"> <span>friends-request:</span></div>
+     <div id="requests"> 
+          <?php if(isset($friends_req)):?>
+            <?php  foreach($friends_req as $key): ?>
+            <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded" >
           <?php  //echo count($friends_request) ; ?>
           <div class="req-content">
-            <img src="../<?=$key['photoProfile']?>">
-            <span>
-              <?=$key['prenom'].' '.$key['nom'] ?>
-            </span>
+            <img src="../<?=$key['photoProfile']?>">  
+            <span><?=$key['prenom'].' '.$key['nom'] ?></span>
           </div>
-          <div class="mt-1 buttons " style="justify-content:center"><a
-              href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button
-                class="btn btn-primary">confirmer</button></a><a
-              href="friend-delete.php?id_ami=<?=$key['idUtilisateur'] ?>"><button
-                class="btn  btn-secondary">annuler</button></a></div>
-
-        </div>
-
-        <?php endforeach; ?>
-        <?php endif; ?>
-      </div>
+                <div class="mt-1 buttons " style="justify-content:center"><a href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">confirmer</button></a><a href="friend-delete.php?id_ami=<?=$key['idUtilisateur'] ?>"><button class="btn  btn-secondary">annuler</button></a></div>
+        
+            </div>
+          
+            <?php endforeach; ?>
+          <?php endif; ?>
+     </div>
 
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section">
@@ -130,7 +111,8 @@
       <div id="publication" class="card">
 
 
-        <form action="post.php"  method="POST" id="publication" enctype="multipart/form-data"> 
+
+     <form action="post.php"  method="POST" id="publication" enctype="multipart/form-data"> 
           <div id="page-content1">
             <img id="user-profile" class="profile-picture" width="80px" height="80px" src="../assets/icons/profile2.png">
             <div id="input">
@@ -157,11 +139,10 @@
             </div>
             <div class="image-profile"><img src="../assets/icons/calendar-event.svg" alt="">Event<span></span></div>
           </div>
-          <div id="page-content3">
+          <div id="page-content3" class="me-5">
             <button class="btn btn-primary col-md-5" name="submit">submit</button>
           </div>
         </form>
-
 
 
 
@@ -178,22 +159,18 @@
       <div id="friends">
 
         <?php if(isset($friends_res)): ?>
-        <?php  foreach($friends_res as $key):?>
-        <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded">
+          <?php  foreach($friends_res as $key):?>
+            <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded" >
           <?php  //echo count($friends_request) ; ?>
           <div class="req-content">
-            <img src="../<?=$key['photoProfile']?>">
-            <span>
-              <?=$key['prenom'].' '.$key['nom'] ?>
-            </span>
-          </div>
-          <div class="mt-1 buttons " style="justify-content:center"><a
-              href="friend-accept.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button
-                class="btn btn-primary">Voir profile</button></a></div>
+            <img src="../<?=$key['photoProfile']?>">  
+            <span><?=$key['prenom'].' '.$key['nom'] ?></span>
+               </div>
+                <div class="mt-1 buttons " style="justify-content:center"><a href="../profile/profile.php?id_ami=<?=$key['idUtilisateur'] ?>" class="me-2"><button class="btn btn-primary">Voir profile</button></a></div>
+                
+            </div>
 
-        </div>
-
-        <?php  endforeach; endif;?>
+          <?php  endforeach; endif;?>
 
 
 
