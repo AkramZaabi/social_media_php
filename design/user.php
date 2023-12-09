@@ -7,9 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $id =$_SESSION['idUtilisateur'];
 
 
-$template="user";
 $confirm=1;
-$titredepage="CollabSpot";
 if(!isset($friends_res))
 {
     
@@ -30,8 +28,9 @@ if(!isset ($friends_request))
    
 
 }
+$template="user";
 
- 
- include '../layout.phtml';
+$titredepage="CollabSpot";
+include '../layout.phtml';
 
 ?>

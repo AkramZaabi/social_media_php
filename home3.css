@@ -20,7 +20,7 @@ dd {
 body {
   font-family: "Arial", sans-serif;
   height: 100vh;
-  background-image: url("./assests/background.svg");
+  background-image: url("./assets/background.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
