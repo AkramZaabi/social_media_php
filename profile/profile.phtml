@@ -5,41 +5,61 @@
         <input type="text" id="recherche" placeholder="searche...">
     </div>
 
-    <div class="menu">
-        <i class="bi bi-envelope-fill"></i>
-        <i class="bi bi-bell-fill"></i>
-        <i class="bi bi-list"></i>
-    </div>
+    <div class="nav-content" id="icons">
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div><img src="../assets/icons/bell-fill.svg"></div>
+            </a>
+            <ul class="dropdown-menu" style="width:600px;">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+        <a class="dropdown-item" href="../message/index.php"><img src="../assets/icons/envelope-fill.svg"></a>
+        <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div><img src="../assets/icons/list.svg"></div>
+            </a>
+            <ul class="dropdown-menu" style="width:100px;">
+                <li><a class="dropdown-item" href="../design/user.php">Home</a></li>
+                <li><a class="dropdown-item" href="../profile/profile.php">Profile</a></li>
+                <li><a class="dropdown-item" href="../message/index.php">Go chat </a></li>
+                <li><a class="dropdown-item" href="../disconnect/disconnect.php">Disconnect</a></li>
+            </ul>
+        </div>
 </nav>
 <div class="Photo-de-couverture">
-    <?php if($user['photoCouverture']) { ?>
-        <img src="<?= $user['photoCouverture'] ?>">
+    <?php if ($user['photoCouverture']) { ?>
+    <img src="<?= $user['photoCouverture'] ?>">
     <?php } else { ?>
-        <img src="./assets/photo-de-couverture.png" width="100px">
-     
-    <?php } ?>    
+    <img src="./assets/photo-de-couverture.png" width="100px">
+
+    <?php } ?>
 </div>
 <section class="profile">
     <div class="profile-user">
-    <?php if($user['photoProfile']){ ?>
-    <img src="../<?=$user['photoProfile']?>">
-<?php }else if ($user['genre'] == "male") { ?>
-    <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
-<?php } else { ?>
-    <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
-<?php } ?>
+        <?php if (isset($user['photoProfile'])) { ?>
+        <img src="./<?= $user['photoProfile'] ?>" width="100px">
+        <?php } else { ?>
+        <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
+        <?php  } ?>
         <div class="name">
-            <h1><?= $user['prenom'].' '.$user['nom'] ?></h1>
-            <span><?= $user['metier'] ?></span>
+            <h1>
+                <?= $user['prenom'] . ' ' . $user['nom'] ?>
+            </h1>
+            <span>
+                <?= $user['metier'] ?>
+            </span>
             <i class="bi bi-calendar"></i>
         </div>
         <div class="follow">
-            <?php if(empty($id_ami)):?>
+            <?php if (empty($id_ami)) : ?>
             <div class="edit">
                 <i class="bi bi-pencil-square"></i>
                 <a href="modify.php?id=<?= $user['idUtilisateur'] ?>">Edit Profile</a>
             </div>
-            
+
             <div class="add">
                 <i class="bi bi-plus-lg"></i>
                 <span>Add a story</span>
@@ -48,18 +68,22 @@
         </div>
         <div class="details">
             <div>
-                <?php if(isset($user['Photos'])){ ?>
-                <p><?= $user['Photos'] ?></p>
+                <?php if (isset($user['Photos'])) { ?>
+                <p>
+                    <?= $user['Photos'] ?>
+                </p>
                 <?php } ?>
                 <span>Photos</span>
             </div>
             <div>
-            <?php if(isset($user['Followers'])){ ?>
-                <p><?= $user['Followers'] ?></p>
+                <?php if (isset($user['Followers'])) { ?>
+                <p>
+                    <?= $user['Followers'] ?>
+                </p>
                 <?php } ?>
                 <span>Followers</span>
             </div>
-          
+
         </div>
 
     </div>
@@ -71,16 +95,77 @@
             <h2>About</h2>
         </div>
         <div class="publication">
-            <div class="publication1">
-            <?php if($user['photoProfile']){ ?>
-                <img src="../<?=$user['photoProfile']?>">
-            <?php }else if ($user['genre'] == "male") { ?>
-                <img src="assets/profil-avatar-homme-icone-ronde_24640-14044.png">
-            <?php } else { ?>
-                <img src="assets/profil-avatar-femme-icone-ronde_24640-14042.png">
-            <?php } ?>
-                <h3><?= $user['prenom'].' '.$user['nom'] ?></h3>
+            <div class="container posts">
+                <?php foreach($pub as $publication):?>
+                <div class="card1">
+                    <div class="top1">
+                        <div class="user_details1">
+
+                            <div class="profile_img1">
+                                <img src="./<?=$user['photoProfile'] ?>" alt="user" class="cover1">
+                            </div>
+                            <h3>
+                                <?=$user['prenom'].' '.$user['nom'] ?><br><span class="hour1">20 h</span>
+                                <span class="globDot1">.</span>
+                            </h3>
+                        </div>
+                        <div class="dot1">
+                            <img src="../assets/dot.png" alt="dot">
+                        </div>
+                    </div>
+                    <p id="message2">
+                        <?= $publication['contenuPub']?>
+                    </p>
+                    <?php if (!empty($publication['image']) || !empty($publication['video'])) { ?>
+                    <div class="imgBg1">
+                        <?php if (!empty($publication['image'])) { ?>
+                        <img src="./<?= $publication['image'] ?>" alt="bg" class="coverFull1">
+                        <?php } else { ?>
+                        <?php if (!empty($publication['video'])) { ?>
+                        <div class="coverFull1">
+                            <video width="320" height="240" controls>
+                                <source src="<?=$publication['video'] ?>" type="video/mp4">
+                            </video>
+                        </div>
+                        <?php }
+                } ?>
+                    </div>
+                    <?php } ?>
+                    <div class="btns1">
+                        <div class="left1">
+                            <img src="../assets/like.png" alt="like">
+                            <h4 class="likes1">499</h4>
+                        </div>
+                        <div class="right1">
+                            <h4>919 comments 500 shares</h4>
+                        </div>
+                    </div>
+                    <div class="border1"></div>
+                    <div class="icon1">
+                        <div class="like1">
+                            <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
+                            <img src="../assets/comments.png" alt="comments">
+                            <img src="../assets/share.png" alt="share">
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach;?>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    function likeButton() {
+        let graylike = document.querySelector('.graylike');
+        let likes = document.querySelector('.likes');
+        if (graylike.src.match("../assets/gray_like.png")) {
+            graylike.src = "../assets/blue_like.png";
+            likes.innerHTML = "500"
+        } else {
+            graylike.src = "../assets/gray_like.png";
+            likes.innerHTML = "499";
+        }
+
+    }
+</script>

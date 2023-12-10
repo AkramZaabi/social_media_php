@@ -1,0 +1,10 @@
+.footer {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  bottom: 0;
+  width: 850px;
+}
+.chat-area-main {
+  height: 400px;
+  overflow-y: auto;
+}

@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
         $imageName = $_FILES['image']['name'];
         $imageTypeExtension = pathinfo($imageName, PATHINFO_EXTENSION);
         $newImageName = md5($imageName) . '.' . $imageTypeExtension;
-        $newImagePath = 'assets/' . $newImageName;
+        $newImagePath = '../assets/' . $newImageName;
         move_uploaded_file($_FILES['image']['tmp_name'], $newImagePath);
         if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
             echo ('Image upload failed with error code ' . $_FILES['image']['error']);
@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
         $videoName = $_FILES['video']['name'];
         $videoTypeExtension = pathinfo($videoName, PATHINFO_EXTENSION);
         $newVideoName = md5($videoName) . '.' . $videoTypeExtension;
-        $newVideoPath = 'assets/' . $newVideoName;
+        $newVideoPath = '../assets/' . $newVideoName;
         move_uploaded_file($_FILES['video']['tmp_name'], $newVideoPath);
         if ($_FILES['video']['error'] !== UPLOAD_ERR_OK) {
             echo ('Video upload failed with error code ' . $_FILES['video']['error']);

@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
         $profile_user= $user->fetch(PDO::FETCH_ASSOC);
 
         $profile_ami =  $pdo->prepare("SELECT * from utilisateur where idUtilisateur=?");
-        $profile_ami->execute([$id]);
+        $profile_ami->execute([$id_ami]);
         $profile_ami= $profile_ami->fetch(PDO::FETCH_ASSOC);
     }
    
@@ -45,25 +45,40 @@ if (isset($_POST['submit'])) {
 $idUtilisateur = 1;
 $infosAmis = [];
 
-$friends_db =  $pdo->prepare("SELECT id_ami from amis where id_user=? and genreAmitie=?");
-    $friends_db->execute([$id,$confirm]);
+$friends_db =  $pdo->prepare("SELECT * from amis where id_user=? or id_ami=? and genreAmitie=?");
+    $friends_db->execute([$id,$id,$confirm]);
     $amis= $friends_db->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($amis as $ami) {
    
-    $idAmi = $ami['id_ami'];
-    $sqlInfoAmi = "SELECT nom, prenom ,idUtilisateur,photoProfile FROM utilisateur WHERE idUtilisateur = :idAmi";
-    $resultInfoAmi = $pdo->prepare($sqlInfoAmi);
-    $resultInfoAmi->execute([
-        'idAmi' => $idAmi,
-    ]);
-    $infos = $resultInfoAmi->fetch(PDO::FETCH_ASSOC);
-    $ami['infoAmi'] = $infos;
-    //var_dump($ami['infoAmi']['nom']);
-    array_push($infosAmis,$ami['infoAmi']);
+    if($ami['id_ami']!=$id){
+        $idAmi = $ami['id_ami'];
+        $sqlInfoAmi = "SELECT nom, prenom ,idUtilisateur,photoProfile FROM utilisateur WHERE idUtilisateur = :idAmi";
+        $resultInfoAmi = $pdo->prepare($sqlInfoAmi);
+        $resultInfoAmi->execute([
+            'idAmi' => $idAmi,
+        ]);
+        $infos = $resultInfoAmi->fetch(PDO::FETCH_ASSOC);
+        $ami['infoAmi'] = $infos;
+        //var_dump($ami['infoAmi']['nom']);
+        array_push($infosAmis,$ami['infoAmi']);
+    }
+    else{
+        $idAmi = $ami['id_user'];
+        $sqlInfoAmi = "SELECT nom, prenom ,idUtilisateur,photoProfile FROM utilisateur WHERE idUtilisateur = :idAmi";
+        $resultInfoAmi = $pdo->prepare($sqlInfoAmi);
+        $resultInfoAmi->execute([
+            'idAmi' => $idAmi,
+        ]);
+        $infos = $resultInfoAmi->fetch(PDO::FETCH_ASSOC);
+        $ami['infoAmi'] = $infos;
+        //var_dump($ami['infoAmi']['nom']);
+        array_push($infosAmis,$ami['infoAmi']);
+    }
+    
 }
 
 $pdo = null;
 
-include '../layout.phtml';
+include './layout.phtml';
 ?>
