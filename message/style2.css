@@ -1,5 +1,6 @@
 .footer{
-
+    padding-bottom: 0;
+    margin-bottom: 0;
     bottom: 0;
     width: 850px;
 }
