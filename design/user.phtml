@@ -1,41 +1,49 @@
-<div class="loading">Loading&#8230;</div>
-<nav class="shadow p-3 mb-5 bg-white rounded">
-    <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px"
-            height="150px"></div>
-    <div class="nav-content" id="barre-rech">
-        <form style="display:flex" action="friends-search.php" method="GET">
-            <button type="submit" class="btn btn-outline-primary me-2" width="200px"><svg
-                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-search mb-2" viewBox="0 0 16 16">
-                    <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg></button><input required class="form-control me-2" type="text"
-                placeholder="Chercher un étudiant..." name="search_friends" aria-label="Search" id="search_etud">
-    </div>
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style3.css">
+  <title>Document</title>
+</head>
+
+<body>
+ 
+  <nav class="shadow p-3 mb-5 bg-white rounded">
+    <div class="nav-content" id="logo"><img src="../assets/icons/CollabSpot-removebg-preview.png" width="150px" height="150px"></div>
+    <div class="nav-content" id="barre-rech" ><form style="display:flex" action="friends-search.php" method="GET">
+     <button type="submit"class="btn btn-outline-primary me-2" width="200px"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mb-2" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg></button><input required class="form-control me-2" type="text" placeholder="Chercher un étudiant..." name="search_friends" aria-label="Search" id="search_etud"></div>
+        </form>
     <div class="nav-content" id="icons">
-        <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <div><img src="../assets/icons/bell-fill.svg"></div>
-            </a>
-            <ul class="dropdown-menu" style="width:600px;">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-        <a class="dropdown-item" href="../message/index.php"><img src="../assets/icons/envelope-fill.svg"></a>
-        <div class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <div><img src="../assets/icons/list.svg"></div>
-            </a>
-            <ul class="dropdown-menu" style="width:100px;">
-                <li><a class="dropdown-item" href="../design/user.php">Home</a></li>
-                <li><a class="dropdown-item" href="../profile/profile.php">Profile</a></li>
-                <li><a class="dropdown-item" href="../message/index.php">Go chat </a></li>
-                <li><a class="dropdown-item" href="../disconnect/disconnect.php">Disconnect</a></li>
-            </ul>
-        </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/bell-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
+
+      <div><img src="../assets/icons/list.svg"></div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/envelope-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+
     </div>
 </nav>
 <?php if (isset($msg) && $msg==1) { ?>
@@ -70,13 +78,10 @@
 </div>
 <section>
     <div class=" shadow p-3 mb-5 bg-white rounded" id="user">
-        <div id="user-sector"> <img style="border-radius: 50%;" src="./<?=$user['photoProfile']?>"><a
-                href="../profile/profile.php"><span>
-                    <?=$user['nom'].' '.$user['prenom'] ?>
-                </span></a></div>
-        <div class="mt-5 span-friends"> <span>friends-request:</span></div>
-        <div id="requests">
-            <?php if(isset($friends_req)):?>
+     <div id="user-sector"> <img src="../assets/icons/profile1.png"><a href="../profile/profile.php"><span><?=$user['nom'].' '.$user['prenom'] ?></span></a></div>
+     <div class="mt-5 span-friends"> <span>friends-request:</span></div>
+     <div id="requests"> 
+          <?php if(isset($friends_req)):?>
             <?php  foreach($friends_req as $key): ?>
             <div class="card mt-2 friends-request shadow p-3 mb-5 bg-white rounded">
                 <?php  //echo count($friends_request) ; ?>
@@ -97,116 +102,135 @@
         </div>
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="user-section">
-        <div id="amis" class="card">
-            <div><img class="prfile-picture" src="../assets/icons/profile2.png"></div>
-            <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
-            <div><img class="prfile-picture" src="../assets/icons/profile3.png"></div>
-            <div><img class="prfile-picture" src="../assets/icons/profile4.png"></div>
-            <div><img class="prfile-picture" src="../assets/icons/profile5.png"></div>
-            <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
-        </div>
-        <div id="publication" class="card">
-            <form action="post.php" method="POST" id="publication" enctype="multipart/form-data">
-                <div id="page-content1">
-                    <img id="user-profile" style="border-radius: 50%;margin-top:5px;" class="profile-picture"
-                        width="80px" height="80px" src="./<?=$user['photoProfile']?>">
-                    <div id="input">
-                        <input class="form-control me-2" type="text" name="pub"
-                            placeholder="What's new <?= $user['prenom'] ?>..." aria-label="Search">
-                    </div>
-                </div>
-                <div id="page-content2">
-                    <div class="image-profile">
-                        <img src="../assets/icons/camera-video.png" alt="">
-                        <span>
-                            <div class="custom-file-input">
-                                <input type="file" name="video" id="customImageInput">
-                                <span for="customImageInput" id="cursor">Video</span>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="image-profile"><img src="../assets/icons/galerie.png" alt="">
-                        <span>
-                            <div class="custom-file-input">
-                                <input type="file" name="image" id="customImageInput">
-                                <span for="customImageInput" id="cursor">image</span>
-                            </div>
-                        </span>
-                    </div>
-                    <div class="image-profile"><img src="../assets/icons/date-du-calendrier.png" alt="">
-                        <span>
-                            <div class="custom-file-input">
-                                <input type="file" name="event" id="customImageInput">
-                                <span for="customImageInput" id="cursor">Event</span>
-                            </div>
-                        </span>
-                    </div>
-                </div>
-                <br>
-                <div id="page-content3" class="me-5">
-                    <button class="btn btn-primary col-md-5" name="submit">submit</button>
-                </div>
-            </form>
-        </div>
+      <div id="amis" class="card">
+        <div><img class="prfile-picture" src="../assets/icons/profile2.png"></div>
+        <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
+        <div><img class="prfile-picture" src="../assets/icons/profile3.png"></div>
+        <div><img class="prfile-picture" src="../assets/icons/profile4.png"></div>
+        <div><img class="prfile-picture" src="../assets/icons/profile5.png"></div>
+        <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
+
+        <img id="arrow" src="../assets/icons/arrow-right-circle.svg">
+      </div>
+      <div id="publication" class="card">
+        <form action="post.php"  method="POST" id="publication" enctype="multipart/form-data"> 
+          <div id="page-content1">
+            <img id="user-profile" class="profile-picture" width="80px" height="80px" src="../assets/icons/profile2.png">
+            <div id="input">
+              <input class="form-control me-2" type="text" name="pub" placeholder="What's new Akram..." aria-label="Search">
+            </div>
+          </div>
+          <div id="page-content2">
+            <div class="image-profile" >
+              <img src="../assets/icons/camera-reels.svg" alt=""> 
+              <span>
+                  <div class="custom-file-input">
+                    <input type="file" name="video" id="customImageInput">
+                    <span for="customImageInput" id="cursor">Video</span>
+                  </div>
+              </span>
+            </div>
+            <div class="image-profile"><img src="../assets/icons/images.svg" alt="">
+                <span>
+                  <div class="custom-file-input">
+                    <input type="file" name="image" id="customImageInput">
+                    <span for="customImageInput" id="cursor">image</span>
+                  </div>
+                </span>
+            </div>
+            <div class="image-profile"><img src="../assets/icons/calendar-event.svg" alt="">Event<span></span></div>
+          </div>
+          <div id="page-content3" class="me-5">
+            <button class="btn btn-primary col-md-5" name="submit">submit</button>
+          </div>
+        </form>
+      </div>
+
+      
         <div id="page" class="card">
-            <?php foreach($res as $publication):
-          $sql='select * from utilisateur where idUtilisateur=?';
-          $user_req=$pdo->prepare($sql);
-          $user_req->execute([$publication['idUtilisateur']]);
-          $user=$user_req->fetch();
-          ?>
-            <div class="card1">
-                <div class="top1">
-                    <div class="user_details1">
-                        <div class="profile_img1">
-                            <img src="./<?=$user['photoProfile'] ?>" alt="user" class="cover1">
-                        </div>
-                        <h3>
-                            <?=$user['prenom'].' '.$user['nom'] ?><br><span class="hour1">20 h</span>
-                            <span class="globDot1">.</span>
-                        </h3>
+
+          <div class="card1">
+            <div class="top1">
+                <div class="user_details1">
+                    <div class="profile_img1">
+                        <img src="../assets/User.jpg" alt="user" class="cover1">
                     </div>
-                    <div class="dot1">
-                        <img src="../assets/dot.png" alt="dot">
-                    </div>
+                    <h3>Code Hack<br><span class="hour1">20 h</span>
+                    <span class="globDot1">.</span></h3>
+                    <ul>
+                        <li>
+                            <img src="../assets/globe.png" alt="globe" class="cover1">
+                        </li>
+                    </ul>
                 </div>
-                <p class="message1">
-                    <?= $publication['contenuPub']?>
-                </p>
-                <?php if (!empty($publication['image']) || !empty($publication['video'])) { ?>
-                <div class="imgBg1">
-                    <?php if (!empty($publication['image'])) { ?>
-                    <img src="./<?= $publication['image'] ?>" alt="bg" class="coverFull1">
-                    <?php } else { ?>
-                    <?php if (!empty($publication['video'])) { ?>
-                    <div class="coverFull1">
-                        <video width="320" height="240" controls>
-                            <source src="<?=$publication['video'] ?>" type="video/mp4">
-                        </video>
-                    </div>
-                    <?php }
-                } ?>
-                </div>
-                <?php } ?>
-                <div class="btns1">
-                    <div class="left1">
-                        <img src="../assets/like.png" alt="like">
-                        <h4 class="likes1">499</h4>
-                    </div>
-                    <div class="right1">
-                        <h4>919 comments 500 shares</h4>
-                    </div>
-                </div>
-                <div class="border1"></div>
-                <div class="icon1">
-                    <div class="like1">
-                        <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
-                        <img src="../assets/comments.png" alt="comments">
-                        <img src="../assets/share.png" alt="share">
-                    </div>
+                <div class="dot1">
+                    <img src="../assets/dot.png" alt="dot">
                 </div>
             </div>
-            <?php endforeach;?>
+            <h4 class="message1">Captain America: Civil War</h4>
+            <div class="imgBg1">
+                <img src="../assets/Bg.jpg" alt="bg" class="coverFull1">
+            </div>
+            <div class="btns1">
+                <div class="left1">
+                    <img src="../assets/like.png" alt="like">
+                    <h4 class="likes1">499</h4>
+                </div>
+                <div class="right1">
+                    <h4>919 comments 500 shares</h4>
+                </div>
+            </div>
+            <div class="border1"></div>
+            <div class="icon1">
+                <div class="like1">
+                    <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
+                    <img src="../assets/comments.png" alt="comments">
+                    <img src="../assets/share.png" alt="share">
+                </div>
+            </div>
+          </div>
+
+          <div class="card1">
+            <div class="top1">
+                <div class="user_details1">
+                    <div class="profile_img1">
+                        <img src="../assets/User.jpg" alt="user" class="cover1">
+                    </div>
+                    <h3>Code Hack<br><span class="hour1">20 h</span>
+                    <span class="globDot1">.</span></h3>
+                    <ul>
+                        <li>
+                            <img src="../assets/globe.png" alt="globe" class="cover1">
+                        </li>
+                    </ul>
+                </div>
+                <div class="dot1">
+                    <img src="../assets/dot.png" alt="dot">
+                </div>
+            </div>
+            <h4 class="message1">Captain America: Civil War</h4>
+            <div class="imgBg1">
+                <img src="../assets/Bg.jpg" alt="bg" class="coverFull1">
+            </div>
+            <div class="btns1">
+                <div class="left1">
+                    <img src="../assets/like.png" alt="like">
+                    <h4 class="likes1">499</h4>
+                </div>
+                <div class="right1">
+                    <h4>919 comments 500 shares</h4>
+                </div>
+            </div>
+            <div class="border1"></div>
+            <div class="icon1">
+                <div class="like1">
+                    <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
+                    <img src="../assets/comments.png" alt="comments">
+                    <img src="../assets/share.png" alt="share">
+                </div>
+            </div>
+          </div>
+
         </div>
     </div>
     </div>
@@ -230,5 +254,6 @@
             <?php  endforeach; endif;?>
         </div>
     </div>
+
 
 </section>

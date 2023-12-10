@@ -5,6 +5,7 @@
         <input type="text" id="recherche" placeholder="searche...">
     </div>
     <div class="nav-content" id="icons">
+<<<<<<< HEAD
         <div class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <div><img src="../assets/icons/bell-fill.svg"></div>
@@ -40,6 +41,42 @@
 <div class="modify">
     <form class="container mt-0" action="<?= $_SERVER['PHP_SELF'] ?>" name="F" method="POST" onsubmit="return verif1()"
         enctype="multipart/form-data">
+=======
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/bell-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/envelope-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div><img src="../assets/icons/list.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:100px;">
+          <li><a class="dropdown-item" href="../design/user.php">Home</a></li>
+          <li><a class="dropdown-item" href="../profile/profile.php">Profile</a></li>
+          <li><a class="dropdown-item" href="../message/index.php">Go chat </a></li>
+          <li><a class="dropdown-item" href="../disconnect/disconnect.php">Disconnect</a></li>
+        </ul>
+      </div>
+</nav>
+<div class="modify">
+    <form class="container mt-0" action="<?= $_SERVER['PHP_SELF'] ?>" name="F" method="POST" onsubmit="return verif1()" enctype="multipart/form-data">
+>>>>>>> 5b0947d98b8a15621076b5f4fe278a8424d101d5
         <input type="hidden" name="id" value="<?= $user['idUtilisateur'] ?>">
         <div class="mb-3">
             <label for="Last_Name" class="form-label">Last Name</label>

@@ -11,10 +11,14 @@
             $namephoto=$_FILES['image']['name'];
             $type_extention=pathinfo($namephoto,PATHINFO_EXTENSION);
             $newName=md5($namephoto).'.'.$type_extention;
+<<<<<<< HEAD
             $new_path='./assets/'.$newName;
             if (!is_dir('./assets/')) {
                 echo'rahou mahouch mawjoud';
             }
+=======
+            $new_path='../assets/'.$newName;
+>>>>>>> 5b0947d98b8a15621076b5f4fe278a8424d101d5
             move_uploaded_file($_FILES['image']['tmp_name'],$new_path);
             $photo = '../assets/'.$newName;
             if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
@@ -33,7 +37,11 @@
             ]);
             $user=$res->fetch();
             $_SESSION['idUtilisateur']=$user['idUtilisateur'];
+<<<<<<< HEAD
             //header('Location: ./');
+=======
+            header('Location: ./profile/profile.php');
+>>>>>>> 5b0947d98b8a15621076b5f4fe278a8424d101d5
         }
     }
     $template="sign_up";
