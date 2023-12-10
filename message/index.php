@@ -1,5 +1,5 @@
 <?php
-    require 'C:\xampp\htdocs\project-php-sem1\db_connect\db_connect.php';
+   require '../db_connect/db_connect.php';
 
     $template="discussion";
     $titredepage="Chat";
@@ -24,12 +24,12 @@ if (isset($_POST['submit'])) {
     {
         $id_ami = $_GET['id_ami'];
 
-        var_dump($id_ami);
+        
         
         $message_ami =  $pdo->prepare("SELECT *from message where (idEmetteur=? and idRecepteur=?) or (idEmetteur=? and idRecepteur=?) ORDER by idMsg");
         $message_ami->execute([$_GET['id_ami'],$id,$id,$_GET['id_ami']]);
         $results_message_ami= $message_ami->fetchAll(PDO::FETCH_ASSOC);
-        var_dump(($results_message_ami));
+  
 
         $user =  $pdo->prepare("SELECT * from utilisateur where idUtilisateur=?");
         $user->execute([$id]);

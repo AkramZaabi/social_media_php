@@ -19,7 +19,7 @@
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
         </svg></button><input required class="form-control me-2" type="text" placeholder="Chercher un étudiant..." name="search_friends" aria-label="Search" id="search_etud"></div>
         </form>
-    <div class="nav-content" id="icons">
+        <div class="nav-content" id="icons">
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div><img src="../assets/icons/bell-fill.svg"></div>
@@ -30,9 +30,6 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-
-
-      <div><img src="../assets/icons/list.svg"></div>
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <div><img src="../assets/icons/envelope-fill.svg"></div>
@@ -43,7 +40,18 @@
           <li><a class="dropdown-item" href="#">Something else here</a></li>
         </ul>
       </div>
-
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div><img src="../assets/icons/list.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:100px;">
+          <li><a class="dropdown-item" href="../design/user.php">Home</a></li>
+          <li><a class="dropdown-item" href="../profile/profile.php">Profile</a></li>
+          <li><a class="dropdown-item" href="../message/index.php">Go chat </a></li>
+          <li><a class="dropdown-item" href="../disconnect/disconnect.php">Disconnect</a></li>
+          
+        </ul>
+      </div>
     </div>
   </nav>
   
@@ -105,14 +113,9 @@
         <div><img class="prfile-picture" src="../assets/icons/profile4.png"></div>
         <div><img class="prfile-picture" src="../assets/icons/profile5.png"></div>
         <div><img class="prfile-picture" src="../assets/icons/profile1.png"></div>
-
-        <img id="arrow" src="../assets/icons/arrow-right-circle.svg">
       </div>
       <div id="publication" class="card">
-
-
-
-     <form action="post.php"  method="POST" id="publication" enctype="multipart/form-data"> 
+        <form action="post.php"  method="POST" id="publication" enctype="multipart/form-data"> 
           <div id="page-content1">
             <img id="user-profile" class="profile-picture" width="80px" height="80px" src="../assets/icons/profile2.png">
             <div id="input">
@@ -140,19 +143,75 @@
             <div class="image-profile"><img src="../assets/icons/calendar-event.svg" alt="">Event<span></span></div>
           </div>
           <div id="page-content3" class="me-5">
-            <button class="btn btn-primary col-md-5" name="submit">submit</button>
+            <button class="btn btn-primary col-md-4" name="submit">submit</button>
           </div>
         </form>
-
-
-
       </div>
+
+      
       <div id="page" class="card">
-        <div>
+        <?php foreach($res as $publication):
+          $sql='select * from utilisateur where idUtilisateur=?';
+          $user_req=$pdo->prepare($sql);
+          $user_req->execute([$publication['idUtilisateur']]);
+          $user=$user_req->fetch();
+          ?>
+                <div class="card1">
+            <div class="top1">
+                <div class="user_details1">
+                    
+                    <div class="profile_img1">
+                        <img src="../<?=$user['photoProfile'] ?>" alt="user" class="cover1">
+                    </div>
+                    <h3><?=$user['prenom'].' '.$user['nom'] ?><br><span class="hour1">20 h</span>
+                    <span class="globDot1">.</span></h3>
+                </div>
+                <div class="dot1">
+                    <img src="../assets/dot.png" alt="dot">
+                </div>
+            </div>
+            <p class="message1"><?= $publication['contenuPub']?></p>
+            <div class="imgBg1">
+                 <?php if (!empty($publication['image'])) { ?>
+                                   
+                                        <img src="../<?= $user['photoProfile'] ?>"alt="bg" class="coverFull1">
+                                
+                                <?php } else { ?>
+                                    <?php if (!empty($publication['video'])) { ?>
+
+                                        <div class="coverFull1">
+                                            <video width="320" height="240" controls>
+                                                <source src="<?=$publication['video'] ?>" type="video/mp4">
+                                             
+                                             
+                                            </video>
+
+                                    <?php }
+                                } ?>
+                
+            </div>
+            <div class="btns1">
+                <div class="left1">
+                    <img src="../assets/like.png" alt="like">
+                    <h4 class="likes1">499</h4>
+                </div>
+                <div class="right1">
+                    <h4>919 comments 500 shares</h4>
+                </div>
+            </div>
+            <div class="border1"></div>
+            <div class="icon1">
+                <div class="like1">
+                    <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
+                    <img src="../assets/comments.png" alt="comments">
+                    <img src="../assets/share.png" alt="share">
+                </div>
+            </div>
+          </div>
+            <?php endforeach;?>
 
         </div>
-        <div></div>
-      </div>
+        
     </div>
     <div class="inner-section  shadow p-3 mb-5 bg-white rounded" id="notifications">
       <span><b>Friends</b></span>

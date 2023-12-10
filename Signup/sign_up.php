@@ -1,8 +1,6 @@
 <?php
     if(isset($_POST['submit2'])){
         extract($_POST);
-        //var_dump($_POST);
-        /**image uplpoad  */
         $sql='SELECT * FROM utilisateur WHERE mail=:mail';
         $res=$pdo->prepare($sql);
         $res->execute([
@@ -33,7 +31,6 @@
             $user=$res->fetch();
             $_SESSION['idUtilisateur']=$user['idUtilisateur'];
             header('Location: ./profile/profile.php');
-
         }
     }
     $template="sign_up";

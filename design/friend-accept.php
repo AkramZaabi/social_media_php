@@ -1,5 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\project-php-sem1\db_connect\db_connect.php';
+require '../db_connect/db_connect.php';
 
 if(isset($_GET['id_ami']))
 {

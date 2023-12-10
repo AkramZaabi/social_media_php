@@ -5,59 +5,87 @@
         <input type="text" id="recherche" placeholder="searche...">
     </div>
 
-    <div class="menu">
-        <i class="bi bi-envelope-fill"></i>
-        <i class="bi bi-bell-fill"></i>
-        <i class="bi bi-list"></i>
+    <div class="nav-content ic" id="icons">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/bell-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div><img src="../assets/icons/envelope-fill.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:600px;">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div><img src="../assets/icons/list.svg"></div>
+        </a>
+        <ul class="dropdown-menu" style="width:100px;">
+          <li><a class="dropdown-item" href="../design/user.php">Home</a></li>
+          <li><a class="dropdown-item" href="../profile/profile.php">Profile</a></li>
+          <li><a class="dropdown-item" href="../message/">Go Chat</a></li>
+          <li><a class="dropdown-item" href="../disconnect/disconnect.php">Disconnect</a></li>
+        </ul>
+      </div>
     </div>
 </nav>
 <div class="Photo-de-couverture">
-    <?php if($user['photoCouverture']) { ?>
+    <?php if ($user['photoCouverture']) { ?>
         <img src="<?= $user['photoCouverture'] ?>">
     <?php } else { ?>
         <img src="./assets/photo-de-couverture.png" width="100px">
-     
-    <?php } ?>    
+
+    <?php } ?>
 </div>
 <section class="profile">
     <div class="profile-user">
-        <?php if(isset($user['photoProfile'])){ ?>
-       <img src="../<?=$user['photoProfile']?>" width="100px">
-       <?php }else{ ?>
-        <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
-        <?php  }?>
+        <?php if (isset($user['photoProfile'])) { ?>
+            <img src="../<?= $user['photoProfile'] ?>" width="100px">
+        <?php } else { ?>
+            <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
+        <?php  } ?>
         <div class="name">
-            <h1><?= $user['prenom'].' '.$user['nom'] ?></h1>
+            <h1><?= $user['prenom'] . ' ' . $user['nom'] ?></h1>
             <span><?= $user['metier'] ?></span>
             <i class="bi bi-calendar"></i>
         </div>
         <div class="follow">
-            <?php if(empty($id_ami)):?>
-            <div class="edit">
-                <i class="bi bi-pencil-square"></i>
-                <a href="modify.php?id=<?= $user['idUtilisateur'] ?>">Edit Profile</a>
-            </div>
-            
-            <div class="add">
-                <i class="bi bi-plus-lg"></i>
-                <span>Add a story</span>
-            </div>
+            <?php if (empty($id_ami)) : ?>
+                <div class="edit">
+                    <i class="bi bi-pencil-square"></i>
+                    <a href="modify.php?id=<?= $user['idUtilisateur'] ?>">Edit Profile</a>
+                </div>
+
+                <div class="add">
+                    <i class="bi bi-plus-lg"></i>
+                    <span>Add a story</span>
+                </div>
             <?php endif; ?>
         </div>
         <div class="details">
             <div>
-                <?php if(isset($user['Photos'])){ ?>
-                <p><?= $user['Photos'] ?></p>
+                <?php if (isset($user['Photos'])) { ?>
+                    <p><?= $user['Photos'] ?></p>
                 <?php } ?>
                 <span>Photos</span>
             </div>
             <div>
-            <?php if(isset($user['Followers'])){ ?>
-                <p><?= $user['Followers'] ?></p>
+                <?php if (isset($user['Followers'])) { ?>
+                    <p><?= $user['Followers'] ?></p>
                 <?php } ?>
                 <span>Followers</span>
             </div>
-          
+
         </div>
 
     </div>
@@ -70,13 +98,69 @@
         </div>
         <div class="publication">
             <div class="publication1">
-            
-            <?php if(isset($user['photoProfile'])){ ?>
-       <img src="../<?=$user['photoProfile']?>" width="100px">
-       <?php }else{ ?>
-        <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
-        <?php  }?>
-                <h3><?= $user['prenom'].' '.$user['nom'] ?></h3>
+
+                <?php if (isset($user['photoProfile'])) { ?>
+                    <img src="../<?= $user['photoProfile'] ?>" width="100px">
+                <?php } else { ?>
+                    <img src="./assets/profil-avatar-homme-icone-ronde_24640-14044.png" width="100px">
+                <?php  } ?>
+                <h3><?= $user['prenom'] . ' ' . $user['nom'] ?></h3>
+            </div>
+            <div class="container posts">
+            <?php foreach($pub as $publication):?>
+                <div class="card1">
+            <div class="top1">
+                <div class="user_details1">
+                    
+                    <div class="profile_img1">
+                        <img src="../<?=$user['photoProfile'] ?>" alt="user" class="cover1">
+                    </div>
+                    <h3><?=$user['prenom'].' '.$user['nom'] ?><br><span class="hour1">20 h</span>
+                    <span class="globDot1">.</span></h3>
+                </div>
+                <div class="dot1">
+                    <img src="../assets/dot.png" alt="dot">
+                </div>
+            </div>
+            <p class="message1"><?= $publication['contenuPub']?></p>
+            <div class="imgBg1">
+                 <?php if (!empty($publication['image'])) { ?>
+                                   
+                                        <img src="../<?= $user['photoProfile'] ?>"alt="bg" class="coverFull1">
+                                
+                                <?php } else { ?>
+                                    <?php if (!empty($publication['video'])) { ?>
+
+                                        <div class="coverFull1">
+                                            <video width="320" height="240" controls>
+                                                <source src="<?=$publication['video'] ?>" type="video/mp4">
+                                             
+                                             
+                                            </video>
+
+                                    <?php }
+                                } ?>
+                
+            </div>
+            <div class="btns1">
+                <div class="left1">
+                    <img src="../assets/like.png" alt="like">
+                    <h4 class="likes1">499</h4>
+                </div>
+                <div class="right1">
+                    <h4>919 comments 500 shares</h4>
+                </div>
+            </div>
+            <div class="border1"></div>
+            <div class="icon1">
+                <div class="like1">
+                    <img src="../assets/gray_like.png" alt="like" class="graylike" onclick="likeButton()">
+                    <img src="../assets/comments.png" alt="comments">
+                    <img src="../assets/share.png" alt="share">
+                </div>
+            </div>
+          </div>
+            <?php endforeach;?>
             </div>
         </div>
     </div>
@@ -84,3 +168,213 @@
 <footer>
     <h1>................................................</h1>
 </footer>
+<style scoped>
+    .card1 {
+    position: relative;
+    width: 600px;
+    min-height: 450px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15),
+        -5px -5px 5px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin: 20px;
+}
+.card1 .top1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card1 .top1 .user_details1 {
+    display: flex;
+    align-items: center;
+}
+.card1 .top1 .user_details1 .profile_img1 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 8px;
+}
+.cover1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+.card1 .top1 .user_details1 h3 {
+    font-size: 18px;
+    color: black;
+    font-weight: 900;
+    line-height: 1em;
+    cursor: pointer;
+}
+.hour1 {
+    color: gray;
+    font-size: 15px;
+    font-weight: 500;
+}
+.globDot1 {
+    position: absolute;
+    margin-left: 5px;
+    margin-top: -4px;
+    font-size: 20px;
+    align-items: center;
+    color: #0000004b;
+}
+
+.dot1 {
+    transform: rotate(90deg) scale(0.6);
+    cursor: pointer;
+    margin-top: -16px;
+}
+.message1{
+    font-weight: 400;
+    font-size: 20px;
+    margin-top: 5px;
+    color: #777;
+    line-height: 1.5em;
+}
+.imgBg1{
+    position: relative;
+    width: 500px;
+    height: 320px;
+    margin: 10px 0 15px;
+    margin:20px;
+    overflow: hidden;
+    
+}
+.coverFull1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    cursor: pointer;
+}
+.btns1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btns1 img{
+    max-width: 30px;
+    cursor: pointer;
+}
+.btns1 .left1 img{
+    margin-right: 8px;
+}
+.likes1{
+    margin-top: -28px;
+    margin-left: 33px;
+    font-size: 17px;
+    color: #777;
+    text-align: center;
+    font-weight: 500;
+}
+.right1 h4{
+    margin-top: 5px;
+    margin-left: 33px;
+    font-size: 17px;
+    color: #777;
+    text-align: center;
+    font-weight: 500;
+}
+.border1{
+    position: relative;
+    width: 100%;
+    height: 0.5px;
+    background: #0000004b;
+    margin-top: 15px;
+}
+.icon1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0 5px 0;
+}
+.icon1 img{
+    max-width: 30px;
+    cursor: pointer;
+}
+.like1{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+.like1 img{
+    position: relative;
+    max-width: 70px;
+    cursor: pointer;
+    margin: 0 40px;
+    margin-top: -15px;
+}
+.like1 img:nth-child(1){
+    width: 55px;
+    margin-right: 20px;
+}
+.like1 img:nth-child(2){
+    width: 33px;
+    margin-right: 15px;
+}
+.border_bott1{
+    position: relative;
+    width: 100%;
+    height: 0.5px;
+    background: #0000004b;
+    margin-top: -15px;
+}
+.addComments1{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.addComments1 .userimg1{
+    position: relative;
+    min-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 8px;
+}
+.text1{
+    background: #F0F2F5;
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #262626;
+    border-radius: 20px;
+}
+
+@media (max-width: 640px){
+    .card1{
+        width: 350px;
+    }
+    .imgBg1{
+        width: 350px;
+    }
+}
+</style>
+<script>
+            function likeButton(){
+            let graylike = document.querySelector('.graylike');
+            let likes = document.querySelector('.likes');
+            if (graylike.src.match("../assets/gray_like.png")) {
+                graylike.src = "../assets/blue_like.png";
+                likes.innerHTML = "500"
+            }else{
+                graylike.src = "../assets/gray_like.png";
+                likes.innerHTML = "499";
+            }
+            
+        }
+</script>

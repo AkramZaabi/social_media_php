@@ -15,11 +15,8 @@ move_uploaded_file($_FILES['image']['tmp_name'], $newImagePath);
 
 if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
     echo ('Image upload failed with error code ' . $_FILES['image']['error']);
-} else {
-    // Process successful image upload
-    $newImagePath="";
+} 
 }
-    }
 else{
     $newImagePath="";
 }
@@ -35,10 +32,7 @@ move_uploaded_file($_FILES['video']['tmp_name'], $newVideoPath);
 
 if ($_FILES['video']['error'] !== UPLOAD_ERR_OK) {
     echo ('Video upload failed with error code ' . $_FILES['video']['error']);
-} else {
-    $newVideoPath = "" ; 
-    // Process successful video upload
-}
+} 
 }
 else{
     $newVideoPath = "" ;

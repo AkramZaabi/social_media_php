@@ -29,8 +29,7 @@ if (!defined('DB_NAME')) {
             die('Erreur : ' . $e->getMessage());
         }
 
-    $query_admin= $pdo->query('SELECT * FROM  admin ');
-    $query_class=  $pdo->query('SELECT * FROM  class ');
+ 
     $query_commentaire =  $pdo->query('SELECT * FROM  commentaire ');
     $query_evenement =  $pdo->query('SELECT * FROM  evenement ');
     $query_message =  $pdo->query('SELECT * FROM  message ');
@@ -43,8 +42,7 @@ if (!defined('DB_NAME')) {
 
 
 
-    $admin = $query_admin->fetchAll();
-    $class = $query_class->fetchAll();
+  
     $users = $query_user->fetchAll();
     $publications = $query_publication->fetchAll();
     $participant = $query_amis->fetchAll();

@@ -1,6 +1,6 @@
 <?php
   
-require 'C:\xampp\htdocs\project-php-sem1\db_connect/db_connect.php';
+  require '../db_connect/db_connect.php';
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -33,7 +33,7 @@ if(!isset ($friends_request))
 
 }
 
- 
+include 'publication.php';
  include '../layout.phtml';
 
 ?>
