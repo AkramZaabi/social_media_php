@@ -18,21 +18,21 @@ toggleButton.addEventListener('click', () => {
 // discussion.js
 
 document.addEventListener("DOMContentLoaded", function () {
-    const addButton = document.querySelector('.add');
-    const searchInput = document.querySelector('#search_etud');
+  const addButton = document.querySelector('.add');
+  const searchInput = document.querySelector('#search_etud');
 
-    addButton.addEventListener('click', function () {
-        const searchTerm = searchInput.value.trim();
+  addButton.addEventListener('click', function () {
+    const searchTerm = searchInput.value.trim();
 
-        // Envoyer la requête AJAX vers le serveur PHP
-        fetch(`search.php?searchTerm=${encodeURIComponent(searchTerm)}`)
-            .then(response => response.json())
-            .then(data => {
-                // Mettez en œuvre la logique pour afficher les résultats côté client
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    });
+    // Envoyer la requête AJAX vers le serveur PHP
+    fetch(`search.php?searchTerm=${encodeURIComponent(searchTerm)}`)
+      .then(response => response.json())
+      .then(data => {
+        // Mettez en œuvre la logique pour afficher les résultats côté client
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  });
 });

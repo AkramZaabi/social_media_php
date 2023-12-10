@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+.footer {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  bottom: 0;
+  width: 850px;
+}
+.chat-area-main {
+  height: 400px;
+  overflow-y: auto;
+}
+=======
+.footer{
+    padding-bottom: 0;
+    margin-bottom: 0;
+    bottom: 0;
+    width: 850px;
+}
+.chat-area-main {
+    height: 400px;
+    overflow-y: auto;
+}
+>>>>>>> 5b0947d98b8a15621076b5f4fe278a8424d101d5

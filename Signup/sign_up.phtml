@@ -4,60 +4,61 @@
         <button aria-label="close modal" class="close-modal modal-trigger1">X</button>
         <h2>SIGN UP</h2>
         <?php if(isset($_POST['submit2'])){ ?>
-            <?php if ($_POST && $user) { ?>
-                <div class="invalide">
-                    <p>Sorry, this email is already in use.<br> Please use a different email address.</p>
-                </div>
-            <?php } ?>
+        <?php if ($_POST && $user) { ?>
+        <div class="invalide">
+            <p>Sorry, this email is already in use.<br> Please use a different email address.</p>
+        </div>
         <?php } ?>
-            <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>"  method="POST" onsubmit="return verif1()" enctype="multipart/form-data">
-                <div class="division">
-                    <div>
-                        <div class="input-field">
-                            <input type="text" name="Last_Name" id="Last_Name" required>
-                            <label>Last Name</label>
-                        </div>
-                        <div class="input-field">
-                            <input type="date" name="date" id="date" required>
-                        </div>
+        <?php } ?>
+        <form name="F" id="contactForm1" action="<?= $_SERVER['PHP_SELF'] ?>" method="POST" onsubmit="return verif1()"
+            enctype="multipart/form-data">
+            <div class="division">
+                <div>
+                    <div class="input-field">
+                        <input type="text" name="Last_Name" id="Last_Name" required>
+                        <label>Last Name</label>
                     </div>
-                    <div>
-                        <div class="input-field">
-                            <input type="text" id="First_Name" name="First_Name" required>
-                            <label>First Name</label>
-                        </div>
-                        <div class="mt-2" class="file">
-                            <label for="formFile" >Choose a profile photo</label>
-                            <input class="form-control" name="image" type="file" id="formFile" required>
-                        </div>
+                    <div class="input-field">
+                        <input type="date" name="date" id="date" required>
                     </div>
                 </div>
-                <div class="container mt-4 ">
-                    Gender :
-                    <input type="radio" name="Genre" value="male" checked>Male
-                    <input type="radio" name="Genre" value="female">Female
+                <div>
+                    <div class="input-field">
+                        <input type="text" id="First_Name" name="First_Name" required>
+                        <label>First Name</label>
+                    </div>
+                    <div class="mt-2" class="file">
+                        <label for="formFile">Choose a profile photo</label>
+                        <input class="form-control" name="image" type="file" id="formFile" required>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <input type="text" name="mail2" id="mail2" required>
-                    <label>Enter your email</label>
-                </div>
-                <div class="input-field">
-                    <input type="password" name="pwd2" id="pwd2" required>
-                    <label>Create password</label>
-                </div>
-                <div class="policy-text">
-                    <input type="checkbox" id="policy">
-                    <label for="policy">
-                        I agree the
-                        <a href="#" class="option">Terms & Conditions</a>
-                    </label>
-                </div>
-                <br>
-                <button type="submit" name="submit2">Sign Up</button>
-            </form>
-            <div class="bottom-link">
-                Already have an account? 
-                <a href="#" aria-label="close modal" id="login-link" class="modal-trigger1 modal-trigger">Login</a>
             </div>
+            <div class="container mt-4 ">
+                Gender :
+                <input type="radio" name="Genre" value="male" checked>Male
+                <input type="radio" name="Genre" value="female">Female
+            </div>
+            <div class="input-field">
+                <input type="text" name="mail2" id="mail2" required>
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="pwd2" id="pwd2" required>
+                <label>Create password</label>
+            </div>
+            <div class="policy-text">
+                <input type="checkbox" id="policy">
+                <label for="policy">
+                    I agree the
+                    <a href="#" class="option">Terms & Conditions</a>
+                </label>
+            </div>
+            <br>
+            <button type="submit" name="submit2">Sign Up</button>
+        </form>
+        <div class="bottom-link">
+            Already have an account?
+            <a href="#" aria-label="close modal" id="login-link" class="modal-trigger1 modal-trigger">Login</a>
+        </div>
     </div>
 </div>

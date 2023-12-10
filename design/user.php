@@ -6,7 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 $id =$_SESSION['idUtilisateur'];
 
-$user = $pdo->prepare("SELECT nom,prenom from utilisateur where idUtilisateur = ?");
+$user = $pdo->prepare("SELECT * from utilisateur where idUtilisateur = ?");
 $user->execute([$id]);
 $user = $user->fetch();
 $template="user";
@@ -32,8 +32,8 @@ if(!isset ($friends_request))
    
 
 }
-
+include 'publication.php';
  
- include '../layout.phtml';
+ include './layout.phtml';
 
 ?>
